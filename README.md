@@ -84,10 +84,13 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 ## EMG
 
 1. Have participants put on the EMG band snugly on the forearm, plug in the BLE dongle to the Linux computer and switch on the band. 
-2. Navigate to `libemg_ros` and run `python3 train.py`, clicking "Train Model" to train gestures. Explain that the training gestures need to be as independent of each other as possible in the way they are performed. 
-3. Close the training window to return to the main page, clicking "Classify" to check the quality of training and retrain if necessary.
+2. Navigate to `libemg_ros` and run `python3 train.py`, clicking "Train Model" to train gestures. Explain that the training gestures need to be as independent of each other as possible in the way they are performed.
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_train.png" height="300"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_test.png" height="300">
+<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_train.png" height="300">
+
+4. Close the training window to return to the main page, clicking "Classify" to check the quality of training and retrain if necessary.
+
+<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_test.png" height="300">
 
 ## HoloLens
 
