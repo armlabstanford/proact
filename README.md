@@ -40,7 +40,8 @@ sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-ga
 Attach motion capture markers and create Motive rigid bodies for: 
 1. A shoulder brace 
 2. The HoloLens 2
-3. A reference object
+3. A reference object.
+   
 In `shoulder_localization/launch/mocap_comm.launch`, these are named Shoulderpad/ShoulderpadL (we had two sizes), HololensSG, and Clipboard. Replace these names in the launch file, and everywhere else they appear, if using different names in Motive.
 
 Remember to export these as Motive assets to avoid repeating calibration. 
