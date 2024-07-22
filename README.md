@@ -51,7 +51,7 @@ In `shoulder_localization/launch/mocap_comm.launch`, these are named Shoulderpad
 
 Remember to export these as Motive assets to avoid repeating calibration. 
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_brace.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_hololens.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_ref.jpg" width="200">
+      <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_brace.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_hololens.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_ref.jpg" width="200">
 
 :warning: 
 - HoloLens markers need to be on the top of the visor (so that they are fixed relative to the IMU and not occluding any cameras), and non-collinear as usual. 
