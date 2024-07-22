@@ -51,7 +51,7 @@ In `shoulder_localization/launch/mocap_comm.launch`, these are named Shoulderpad
 
 Remember to export these as Motive assets to avoid repeating calibration. 
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_brace.jpg" width="200"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_hololens.jpg" width="200"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_ref.jpg" width="200">
+<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_brace.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_hololens.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_ref.jpg" width="200">
 
 :warning: 
 - HoloLens markers need to be on the top of the visor (so that they are fixed relative to the IMU and not occluding any cameras), and non-collinear as usual. 
@@ -78,7 +78,7 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 
 1. Find a way to repeatedly place the HoloLens in a fixed pose. We built a rig from some old PC parts and packaging:
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_side.jpg" width="200"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_top_rotated.jpg" width="200">
+<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_side.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_top_rotated.jpg" width="200">
 
 2. Run `shoulder_localization/src/calibration.sh` in a terminal while the HoloLens is on the rig and do as prompted:
 - Once the app has started and is connected to ROS, wear the HoloLens to manually align the reference mocap frame with the virtual coordinate frame that appears 30 cm in front of the Unity world frame.
