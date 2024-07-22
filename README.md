@@ -83,7 +83,7 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 2. Run `shoulder_localization/src/calibration.sh` in a terminal while the HoloLens is on the rig and do as prompted:
 - Once the app has started and is connected to ROS, wear the HoloLens to manually align the reference mocap frame with the virtual coordinate frame that appears 30 cm in front of the Unity world frame.
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_full.png" height="300"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_virtual.png" height="300">
+<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_full.jpg" height="300"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_virtual.jpg" height="300">
 
 - Replace the HoloLens on the rig and get the transform between the Unity head frame (coincident, at this pose, with the Unity head frame) and HoloLens mocap frame. 
 - Paste these values into the initialization section (`self.pos_m2c` and `temp`) of `shoulder_localization/src/holoworld_with_mocap.py`. Note that tf puts q0 after q1, q2, q3, while `pyquaternion` expects them in the order q0, q1, q2, q3. The script arranges them so that you can paste values directly from the terminal.
