@@ -1,8 +1,13 @@
-# Prosthetic Arm Control Testbed 
+# 🦾 Prosthetic Arm Control Testbed 
+
+### [Shivani Guptasarma](https://arm.stanford.edu/people/shivani-guptasarma), [Monroe Kennedy III](https://monroekennedy3.com/)
 
 This page describes how to use ProACT to set up a study on intelligent control for prosthetic arms.
 
 ![](https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/proact_splash.png)
+
+[![Project](https://img.shields.io/badge/Project_Page-ProACT-green)](https://armlabstanford.github.io/proact)
+[![ArXiv](https://img.shields.io/badge/Arxiv-ProACT-red)](https://arxiv.org/abs/2407.05025) 
 
 Tested on the following setup:
 - Ubuntu 20.04 
