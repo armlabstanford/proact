@@ -76,14 +76,17 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 
 ## Calibration for localization
 
-1. Find a way to repeatedly place the HoloLens in a fixed pose. We built a rig from some old PC parts and packaging:
+1. Find a way to repeatedly place the HoloLens in a fixed pose, for a fixed headband circumference. We built a constraining rig from some old PC parts and packaging:
 
 <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_side.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_top_rotated.jpg" width="200">
 
 2. Run `shoulder_localization/src/calibration.sh` in a terminal while the HoloLens is on the rig and do as prompted:
 - Once the app has started and is connected to ROS, wear the HoloLens to manually align the reference mocap frame with the virtual coordinate frame that appears 30 cm in front of the Unity world frame.
+
+<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_full.png" height="300"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_virtual.png" height="300">
+
 - Replace the HoloLens on the rig and get the transform between the Unity head frame (coincident, at this pose, with the Unity head frame) and HoloLens mocap frame. 
-- Paste these values into the initialization section (`self.pos_m2c` and `temp`) of `shoulder_localization/src/holoworld_with_mocap.py`. Note that tf puts q0 after q1, q2, q3, while `pyquaternion` expects them in the order q0, q1, q2, q3. The script arranges them so that you can paste values directly from the terminal. 
+- Paste these values into the initialization section (`self.pos_m2c` and `temp`) of `shoulder_localization/src/holoworld_with_mocap.py`. Note that tf puts q0 after q1, q2, q3, while `pyquaternion` expects them in the order q0, q1, q2, q3. The script arranges them so that you can paste values directly from the terminal.
 
 # With participants 
 
