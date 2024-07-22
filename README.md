@@ -51,7 +51,7 @@ In `shoulder_localization/launch/mocap_comm.launch`, these are named Shoulderpad
 
 Remember to export these as Motive assets to avoid repeating calibration. 
 
-      <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_brace.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_hololens.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_ref.jpg" width="200">
+        <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_brace.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_hololens.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/mocap_ref.jpg" width="200">
 
 :warning: 
 - HoloLens markers need to be on the top of the visor (so that they are fixed relative to the IMU and not occluding any cameras), and non-collinear as usual. 
@@ -78,12 +78,12 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 
 1. Find a way to repeatedly place the HoloLens in a fixed pose, for a fixed headband circumference. We built a constraining rig from some old PC parts and packaging:
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_side.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_top_rotated.jpg" width="200">
+        <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_side.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_top_rotated.jpg" width="200">
 
 2. Run `shoulder_localization/src/calibration.sh` in a terminal while the HoloLens is on the rig and do as prompted:
 - Once the app has started and is connected to ROS, wear the HoloLens to manually align the reference mocap frame with the virtual coordinate frame that appears 30 cm in front of the Unity world frame.
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_full.jpg" height="200"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_virtual.jpg" height="200">
+        <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_full.jpg" height="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_virtual.jpg" height="200">
 
 - Replace the HoloLens on the rig and get the transform between the Unity head frame (coincident, at this pose, with the Unity head frame) and HoloLens mocap frame. 
 - Paste these values into the initialization section (`self.pos_m2c` and `temp`) of `shoulder_localization/src/holoworld_with_mocap.py`. Note that tf puts q0 after q1, q2, q3, while `pyquaternion` expects them in the order q0, q1, q2, q3. The script arranges them so that you can paste values directly from the terminal.
@@ -95,11 +95,11 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 1. Have participants put on the EMG band snugly on the forearm, plug in the BLE dongle to the Linux computer and switch on the band. 
 2. Navigate to `libemg_ros` and run `python3 train.py`, clicking "Train Model" to train gestures. Explain that the training gestures need to be as independent of each other as possible in the way they are performed.
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_train.png" height="300">
+        <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_train.png" height="300">
 
 4. Close the training window to return to the main page, clicking "Classify" to check the quality of training and retrain if necessary.
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_test.png" height="300">
+        <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_test.png" height="300">
 
 ## HoloLens
 
