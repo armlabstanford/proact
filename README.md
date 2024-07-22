@@ -12,7 +12,7 @@ This page describes how to use ProACT to set up a study on intelligent control f
 Tested on the following setup:
 - Ubuntu 20.04 
 - ROS Noetic
-- Hololens 2 with Windows Holographic for Business OS build 20348.1518
+- Hololens 2 with Windows Holographic for Business OS build 22621.1266
 - Unity 2020.3.26.f1
 - Mixed Reality Toolkit 2.7.3.0
 - OptiTrack motion capture PrimeX series with Motive Tracker 3.0.1]
