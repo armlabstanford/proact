@@ -15,7 +15,7 @@ Tested on the following setup:
 - Hololens 2 with Windows Holographic for Business OS build 22621.1266
 - Unity 2020.3.26.f1
 - Mixed Reality Toolkit 2.7.3.0
-- OptiTrack motion capture PrimeX series with Motive Tracker 3.0.1]
+- OptiTrack motion capture PrimeX series with Motive Tracker 3.0.1
 - OyMotion GForce Pro+ EMG band
 - LibEMG latest release as on January 2024
 
