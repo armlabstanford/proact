@@ -37,7 +37,7 @@ sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-ga
 4. Copy the file_server package from the UWP fork of ROS#: https://github.com/EricVoll/ros-sharp into the workspace. 
 5. Clone packages from https://github.com/JenniferBuehler/general-message-pkgs and https://github.com/JenniferBuehler/gazebo-pkgs into the workspace.
 6. Install [libemg](https://libemg.github.io/libemg/index.html) : `pip3 install libemg`.
-7. Clone [libemg_ros](https://github.com/armlabstanford/libemg_ros/tree/main) into the catkin workspace. 
+7. Clone [libemg-ros](https://github.com/armlabstanford/libemg-ros/tree/main) into the catkin workspace. 
 8. In `shoulder_localization/launch/mocap_comm.launch`, replace the server IP with the IP of the computer running Motive. 
 
 ## Motion capture 
@@ -93,7 +93,7 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 ## EMG
 
 1. Have participants put on the EMG band snugly on the forearm, plug in the BLE dongle to the Linux computer and switch on the band. 
-2. Navigate to `libemg_ros` and run `python3 train.py`, clicking "Train Model" to train gestures. Explain that the training gestures need to be as independent of each other as possible in the way they are performed.
+2. Navigate to `libemg-ros` and run `python3 train.py`, clicking "Train Model" to train gestures. Explain that the training gestures need to be as independent of each other as possible in the way they are performed.
 
 <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/videos/emg_train.gif" height="300">
 
