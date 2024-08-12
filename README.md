@@ -28,7 +28,7 @@ Connect the Linux computer running ROS, Windows computer running Unity, HoloLens
 ## Installation
 
 1. Install [ROS](http://wiki.ros.org/noetic/Installation/Ubuntu) and [make a catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace). 
-2. Clone this repository into catkin_ws/src. 
+2. Clone this repository into the `src` directory of your workspace. 
 3. Install dependencies using [rosdep](http://wiki.ros.org/rosdep). 
 4. Installation of the Gazebo-ROS controllers may be necessary separately, if rosdep does not handle it:
 ```
