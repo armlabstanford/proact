@@ -32,13 +32,14 @@ Connect the Linux computer running ROS, Windows computer running Unity, HoloLens
 3. Install dependencies using [rosdep](http://wiki.ros.org/rosdep). 
 4. Installation of the Gazebo-ROS controllers may be necessary separately, if rosdep does not handle it:
 ```
-sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros-control ros-noetic-moveit
+sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros-control ros-noetic-moveit ros-noetic-rviz-visual-tools ros-noetic-moveout-visual-tools
 ```
 4. Copy the file_server package from the UWP fork of ROS#: https://github.com/EricVoll/ros-sharp into the workspace. 
 5. Clone packages from https://github.com/JenniferBuehler/general-message-pkgs and https://github.com/JenniferBuehler/gazebo-pkgs into the workspace.
 6. Install [libemg](https://libemg.github.io/libemg/index.html) : `pip3 install libemg`.
 7. Clone [libemg-ros](https://github.com/armlabstanford/libemg-ros/tree/main) into the catkin workspace. 
-8. In `shoulder_localization/launch/mocap_comm.launch`, replace the server IP with the IP of the computer running Motive. 
+8. In `shoulder_localization/launch/mocap_comm.launch`, replace the server IP with the IP of the computer running Motive.
+9. Extend the configuration of the workspace `catkin config --extend /opt/ros/noetic/` and build it.
 
 ## Motion capture 
 
