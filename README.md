@@ -34,7 +34,7 @@ Connect the Linux computer running ROS, Windows computer running Unity, HoloLens
 ```
 sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros-control ros-noetic-moveit ros-noetic-rviz-visual-tools ros-noetic-moveout-visual-tools
 ```
-4. Copy the file_server package from the UWP fork of ROS#: https://github.com/EricVoll/ros-sharp into the workspace. 
+4. Copy the file_server package from the UWP fork of ROS#: https://github.com/EricVoll/ros-sharp into the workspace and install the rosbridge server: `sudo apt-get install ros-noetic-rosbridge-server`.
 5. Clone packages from https://github.com/JenniferBuehler/general-message-pkgs and https://github.com/JenniferBuehler/gazebo-pkgs into the workspace.
 6. Install [libemg](https://libemg.github.io/libemg/index.html) : `pip3 install libemg`.
 7. Clone [libemg-ros](https://github.com/armlabstanford/libemg-ros/tree/main) into the catkin workspace. 
