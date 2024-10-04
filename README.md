@@ -31,7 +31,7 @@ Connect the Linux computer running ROS, Windows computer running Unity, HoloLens
 2. Clone this repository into the `src` directory of your workspace. 
 3. Install dependencies using [rosdep](http://wiki.ros.org/rosdep) and run
 ```
-sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros-control ros-noetic-moveit ros-noetic-rviz-visual-tools ros-noetic-moveout-visual-tools
+sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros-control ros-noetic-moveit ros-noetic-rviz-visual-tools ros-noetic-moveout-visual-tools ros-noetic-vrpn-client-ros
 sudo apt-get install xdotool
 ```
 4. Copy the file_server package from the UWP fork of ROS#: https://github.com/EricVoll/ros-sharp into the workspace and install the rosbridge server: `sudo apt-get install ros-noetic-rosbridge-server`.
