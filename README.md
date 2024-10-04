@@ -29,10 +29,10 @@ Connect the Linux computer running ROS, Windows computer running Unity, HoloLens
 
 1. Install [ROS](http://wiki.ros.org/noetic/Installation/Ubuntu) and [make a catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace). 
 2. Clone this repository into the `src` directory of your workspace. 
-3. Install dependencies using [rosdep](http://wiki.ros.org/rosdep). 
-4. Installation of the Gazebo-ROS controllers may be necessary separately, if rosdep does not handle it:
+3. Install dependencies using [rosdep](http://wiki.ros.org/rosdep) and run
 ```
 sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros-control ros-noetic-moveit ros-noetic-rviz-visual-tools ros-noetic-moveout-visual-tools
+sudo apt-get install xdotool
 ```
 4. Copy the file_server package from the UWP fork of ROS#: https://github.com/EricVoll/ros-sharp into the workspace and install the rosbridge server: `sudo apt-get install ros-noetic-rosbridge-server`.
 5. Clone packages from https://github.com/JenniferBuehler/general-message-pkgs and https://github.com/JenniferBuehler/gazebo-pkgs into the workspace.
