@@ -81,7 +81,9 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 
 <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_side.jpg" width="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/rig_top_rotated.jpg" width="200">
 
-2. Run `shoulder_localization/src/calibration.sh` in a terminal while the HoloLens is on the rig and do as prompted:
+2. Disable the RosConnector > HideFrames script in Unity before building and deploying. 
+
+3. Run `shoulder_localization/src/calibration.sh` in a terminal while the HoloLens is on the rig and do as prompted:
 - Once the app has started and is connected to ROS, wear the HoloLens to manually align the reference mocap frame with the virtual coordinate frame that appears 30 cm in front of the Unity world frame.
 
 <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_full.jpg" height="200">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/calib_virtual.jpg" height="200">
