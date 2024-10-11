@@ -28,7 +28,7 @@ Connect the Linux computer running ROS, Windows computer running Unity, HoloLens
 ## Installation
 
 1. Install [ROS](http://wiki.ros.org/noetic/Installation/Ubuntu) and [make a catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace). 
-2. Clone this repository into the `src` directory of your workspace. 
+2. Clone the ROS package `proact_ros` from this repository into the `src` directory of your workspace. 
 3. Install dependencies using [rosdep](http://wiki.ros.org/rosdep) and run
 ```
 sudo apt install ros-noetic-ros-control ros-noetic-ros-controllers ros-noetic-gazebo-ros-control ros-noetic-moveit ros-noetic-rviz-visual-tools ros-noetic-moveout-visual-tools ros-noetic-vrpn-client-ros
