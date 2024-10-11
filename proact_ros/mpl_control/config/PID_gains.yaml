@@ -1,0 +1,28 @@
+mpl_right_arm/gazebo_ros_control/pid_gains:
+      mpl_right_arm__shoulder: {p: 100.0, i: 0.0, d: 0.15} #1}
+      mpl_right_arm__humerus: { p: 100.0, i: 0.0, d: 0.15} #1 }
+      mpl_right_arm__elbow: { p: 100.0, i: 0.01, d: 0.15 }
+      mpl_right_arm__forearm: { p: 100.0, i: 0.01, d: 0.15 }
+      mpl_right_arm__wristy: { p: 100.0, i: 0.0, d: 0.01 }
+      mpl_right_arm__wristx: { p: 100.0, i: 0.0, d: 0.01 }
+      mpl_right_arm__wristz: { p: 100.0, i: 0.0, d: 0.01 }
+      mpl_right_arm__index0: { p: 0.2, i: 0.01, d: 0.0005 }
+      mpl_right_arm__index1: { p: 0.2, i: 0.01, d: 0.0005 }
+      mpl_right_arm__index2: { p: 0.1, i: 0.01, d: 0.0001 }
+      mpl_right_arm__index3: { p: 0.1, i: 0.01, d: 0.0001 }
+      mpl_right_arm__middle0: { p: 0.2, i: 0.01, d: 0.0005 }
+      mpl_right_arm__middle1: { p: 0.2, i: 0.01, d: 0.0005 }
+      mpl_right_arm__middle2: { p: 0.1, i: 0.01, d: 0.0001 }
+      mpl_right_arm__middle3: { p: 0.1, i: 0.01, d: 0.0001 }
+      mpl_right_arm__pinky0: { p: 0.02, i: 0.01, d: 0.0005 }
+      mpl_right_arm__pinky1: { p: 0.02, i: 0.01, d: 0.0005 }
+      mpl_right_arm__pinky2: { p: 0.01, i: 0.01, d: 0.0001 }
+      mpl_right_arm__pinky3: { p: 0.01, i: 0.01, d: 0.0001 }
+      mpl_right_arm__ring0: { p: 0.2, i: 0.01, d: 0.0005 }
+      mpl_right_arm__ring1: { p: 0.2, i: 0.01, d: 0.0005 }
+      mpl_right_arm__ring2: { p: 0.1, i: 0.01, d: 0.0001 }
+      mpl_right_arm__ring3: { p: 0.1, i: 0.01, d: 0.0001 }
+      mpl_right_arm__thumb0: { p: 0.2, i: 0.01, d: 0.0005 }
+      mpl_right_arm__thumb1: { p: 0.2, i: 0.01, d: 0.0005 }
+      mpl_right_arm__thumb2: { p: 0.1, i: 0.01, d: 0.0001 }
+      mpl_right_arm__thumb3: { p: 0.1, i: 0.01, d: 0.0001 }

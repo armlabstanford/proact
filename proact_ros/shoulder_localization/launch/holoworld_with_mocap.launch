@@ -1,0 +1,13 @@
+<launch>
+    <!-- define relationship between Clipboard and sim world -->
+    <!-- rosrun tf tf_echo Clipboard Shoulderpad -->
+    <!-- Get the y component of that y0, then for the z component below, substitute -(1-(y0-0.4)) -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="set_world_under_table" args="1.5 0 -0.82 0 0 0 1 tabletag_ros world"/> -->
+    <!-- set up hololens world coordinate system-->
+    <node pkg="shoulder_localization" name="hololens_world_mocap" type="holoworld_with_mocap.py" output="screen"/>
+    <!-- send ros world location to Unity -->
+    <node name ="world_matcher" pkg="topic_utils" type="tf2posemsg.py" args="/rosworld_pose_msg hololens_world_test world"/>
+    <!-- start world setting service (when ready, run the client from terminal) to stop using mocap poses for world -->
+    <!-- this service returns the transform between ros world and hololens world (as determined from mocap) -->
+    <node name="steady_holoworld" pkg="shoulder_localization" type="fix_world_server.py" output="screen"/>
+</launch>

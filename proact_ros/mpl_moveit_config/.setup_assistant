@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: mpl_description
+    relative_path: mpl_right_arm_27DoF.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/mpl_right_arm.srdf
+  CONFIG:
+    author_name: Shivani Guptasarma
+    author_email: shivanig@stanford.edu
+    generated_timestamp: 1662106077

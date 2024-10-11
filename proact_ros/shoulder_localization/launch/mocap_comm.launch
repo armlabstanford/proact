@@ -1,0 +1,82 @@
+<!-- launch after opening app on hololens and client is connected -->
+<launch>
+
+    <arg name="testing" default="false"/>
+    <arg name="brace_size_M" default="true"/>
+
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="match_worlds" args="0 0 0 0.707 0 0 0.707 world optitrack_world"/> -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="arm_on_shoulder" args="0 0 0 0 0 0 1 Shoulderpad base_link"/> -->
+    <!-- Tune this visually -->
+    
+   <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="holoworld_tf_setup" args="0 0 0 0 0 0 1 holocam holoworld"/> -->
+
+    <!-- start publishing synchronized image and info topics from holocam -->
+    <!-- <node if="$(arg testing_software)" name="fake_hololens" pkg="shoulder_localization" type="fake_hololens.py"/>
+    <include unless="$(arg testing_software)" file="$(find shoulder_localization)/launch/holocam_manager.launch">
+    </include> -->
+
+    <!-- <include file="$(find shoulder_localization)/launch/holocam_manager.launch">
+    </include> -->
+
+   <!-- VRPN Server -->
+   <arg name="server" default="192.169.1.32"/>
+   <!-- <arg name="server" default="mocap.local"/> -->
+
+   <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
+      <rosparam subst_value="true">
+         <!-- server: $(arg server) -->
+         server: $(arg server)
+         port: 3883
+         update_frequency: 100.0
+         frame_id: optitrack_world
+         use_server_time: false
+         broadcast_tf: true
+         refresh_tracker_frequency: 1.0
+         tracker_name: Clipboard, Shoulderpad, ShoulderpadL, HololensSG
+      </rosparam>
+
+   </node>
+
+    <!-- smoothen mocap data -->
+    <node pkg="topic_utils" name="clipboard_filter" type="pose_filter.py" args="/vrpn_client_node/Clipboard/pose /Clipboard_filtered_pose 10"/>
+    <node pkg="topic_utils" name="clipboard_filtered_tf" type="posemsg2tf.py" args="/Clipboard_filtered_pose optitrack_world Clipboard_filtered"/>
+   
+    <node if="$(arg brace_size_M)" pkg="topic_utils" name="shoulderpad_filter" type="pose_filter.py" args="/vrpn_client_node/Shoulderpad/pose /Shoulderpad_filtered_pose 10"/>
+    <node unless="$(arg brace_size_M)" pkg="topic_utils" name="shoulderpad_filter" type="pose_filter.py" args="/vrpn_client_node/ShoulderpadL/pose /Shoulderpad_filtered_pose 10"/>
+    <node pkg="topic_utils" name="shoulderpad_filtered_tf" type="posemsg2tf.py" args="/Shoulderpad_filtered_pose optitrack_world Shoulderpad_filtered"/>
+
+    <node pkg="topic_utils" name="hololens_filter" type="pose_filter.py" args="/vrpn_client_node/HololensSG/pose /Hololens_filtered_pose 10"/>
+    <node pkg="topic_utils" name="hololens_filtered_tf" type="posemsg2tf.py" args="/Hololens_filtered_pose optitrack_world Hololens_filtered"/>
+
+
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="match_tablerefs" args="0.038 0.0 -0.093 1.57 -1.57 3.14 Clipboard tabletag_ros"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="set_world_under_table" args="0 0 -1.03 0 0 0 1 tabletag_ros world"/> -->
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="match_tablerefs" args="0.038 -0.016 -0.093 1.57 -1.57 3.14 Clipboard_filtered tabletag_ros"/>
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="set_world_under_table" args="1.5 0 -1.03 0 0 0 1 tabletag_ros world"/> -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="set_world_under_table" args="1.5 0 -0.91 0 0 0 1 tabletag_ros world"/> -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="match_optitrack_worlds" args="0 0 0 0 0 0 1 Optitrack_world optitrack_world"/> -->
+
+    <!-- <node unless="$(arg testing)" pkg="shoulder_localization" name="arm_base_pose_publish" type="arm_placer" output="screen"/> -->
+
+
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="match_tablerefs_filtered" args="0.038 0.0 -0.093 1.57 -1.57 3.14 clipboard_filtered tabletag_ros_filtered"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="match_tablerefs_together" args="0 0 0 1 1 1 tabletag_ros_filtered tabletag_ros"/> -->
+
+
+   <!-- set up hololens world coordinate system-->
+   <!-- <node pkg="shoulder_localization" name="hololens_world_establish" type="hololens_world" output="screen"/> -->
+   
+   <!-- set arm base at apriltag -->
+   <!-- <node pkg="shoulder_localization" name="arm_base_pose_publish" type="arm_placer" output="screen"/> -->
+   
+   <!-- <node pkg="mpl_control" type="locate_realsense_frame.py" name="broadcaster_fixed" output="screen"/>
+    -->
+   <!-- <node name="locate_realsense_frame" pkg="mpl_control" type="locate_realsense_frame.py" respawn="false" output="screen" >
+      <param name="turtle" type="string" value="camera_link" /> -->
+   <!-- </node> -->
+
+   <!-- <node name="adjust_table_height" pkg="shoulder_localization" type="adjust_height_server.py" output="screen"/> -->
+
+
+</launch>

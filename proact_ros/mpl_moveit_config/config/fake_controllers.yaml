@@ -1,0 +1,38 @@
+controller_list:
+  - name: fake_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - mpl_right_arm__shoulder
+      - mpl_right_arm__humerus
+      - mpl_right_arm__elbow
+      - mpl_right_arm__forearm
+      - mpl_right_arm__wristy
+      - mpl_right_arm__wristx
+      - mpl_right_arm__wristz
+  - name: fake_hand_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - mpl_right_arm__index0
+      - mpl_right_arm__index1
+      - mpl_right_arm__index2
+      - mpl_right_arm__index3
+      - mpl_right_arm__middle1
+      - mpl_right_arm__middle2
+      - mpl_right_arm__middle3
+      - mpl_right_arm__pinky0
+      - mpl_right_arm__pinky1
+      - mpl_right_arm__pinky2
+      - mpl_right_arm__pinky3
+      - mpl_right_arm__ring0
+      - mpl_right_arm__ring1
+      - mpl_right_arm__ring2
+      - mpl_right_arm__ring3
+      - mpl_right_arm__thumb0
+      - mpl_right_arm__thumb1
+      - mpl_right_arm__thumb2
+      - mpl_right_arm__thumb3
+initial:  # Define initial robot poses per group
+  - group: mpl_arm
+    pose: outstretched_arm
+  - group: mpl_hand
+    pose: outstretched_hand

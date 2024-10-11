@@ -1,0 +1,10 @@
+<launch>
+<node name="emg2servo" pkg="direct_control" type="emg2servo" output="screen" >
+    <remap from="/emg2servo/mpl_right_arm/arm_controller/command" to="/mpl_right_arm/arm_controller/command" />
+</node>
+
+<!-- just for logging -->
+<node pkg="topic_utils" name="head_ros" type="tf2posemsg.py" args="/hololens_unity_camera_pose_ros world hololens_unity_camera"/>
+<node pkg="gaze" name="log_gaze" type="interpret_gaze_logger" output="screen"/>
+
+</launch>

@@ -1,0 +1,59 @@
+<launch>
+   <!-- GAZEBO arguments -->
+    <arg name="paused" default="false" />
+    <arg name="use_sim_time" default="true" />
+    <arg name="gazebo_gui" default="true" />
+    <arg name="headless" default="false" />
+    <arg name="debug" default="false" />
+    <arg name="default_world" default="true" />
+
+    <arg name="arm_origin_x" default="-0.7"/>
+    <arg name="arm_origin_y" default="0.0"/>
+    <arg name="arm_origin_z" default="1.4"/>
+
+    <!-- <include file="$(find file_server)/launch/ros_sharp_communication.launch">
+      <param name="port" value="9090"/>
+    </include> -->
+
+    <!-- <arg name="mpl_right_arm__elbow_initial" default="0.3291"/> -->
+    <arg name="mpl_right_arm__elbow_initial" default="0.1291"/>
+    <!-- <arg name="mpl_right_arm__forearm_initial" default="1.305"/> -->
+    <!-- <arg name="mpl_right_arm__forearm_initial" default="1.505"/> -->
+    <arg name="mpl_right_arm__forearm_initial" default="2.0"/>
+    <arg name="mpl_right_arm__humerus_initial" default="-0.161"/>
+    <!-- <arg name="mpl_right_arm__shoulder_initial" default="0.3449"/> -->
+    <arg name="mpl_right_arm__shoulder_initial" default="0.1449"/>
+    <arg name="mpl_right_arm__wristx_initial" default="0.0174"/>
+    <arg name="mpl_right_arm__wristy_initial" default="1.57"/>
+    <arg name="mpl_right_arm__wristz_initial" default="0.1006"/>
+
+
+    <!-- <include file="$(find shoulder_localization)/launch/mocap_comm.launch">
+    </include> -->
+
+   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="paused" value="true"/>
+      <arg name="verbose" value="true"/>
+      <arg name="gui" value="$(arg gazebo_gui)"/>
+    </include>
+
+    <!-- load descriptions into param server -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find mpl_description)/mpl_right_arm_by_moveit.urdf" />
+    <param name="red_block_description" command="$(find xacro)/xacro $(find box_blocks_experiment)/models/red_block.urdf" />
+    <param name="blue_block_description" command="$(find xacro)/xacro $(find box_blocks_experiment)/models/blue_block.urdf" />
+    <param name="table_description" command="$(find xacro)/xacro $(find box_blocks_experiment)/models/table.urdf" />
+
+    <!-- unpause only after loading robot model -->
+    <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" />
+
+
+    <!--PID gains for gazebo_ros_control-->
+    <rosparam file="$(find mpl_control)/config/mpl_controllers_config.yaml" command="load" />
+    <rosparam file="$(find mpl_control)/config/PID_gains.yaml" command="load" />
+
+
+    <!-- Spawn robot model in Gazebo -->
+    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mpl_right_arm  -J mpl_right_arm__humerus $(arg mpl_right_arm__humerus_initial)  -J mpl_right_arm__shoulder $(arg mpl_right_arm__shoulder_initial)  -J mpl_right_arm__forearm $(arg mpl_right_arm__forearm_initial)  -J mpl_right_arm__elbow $(arg mpl_right_arm__elbow_initial)  -J mpl_right_arm__wristx $(arg mpl_right_arm__wristx_initial)  -J mpl_right_arm__wristy $(arg mpl_right_arm__wristy_initial)  -J mpl_right_arm__wristz $(arg mpl_right_arm__wristz_initial) -unpause  -x $(arg arm_origin_x) -y $(arg arm_origin_y) -z $(arg arm_origin_z)"/>
+
+
+</launch>

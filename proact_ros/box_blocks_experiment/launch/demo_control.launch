@@ -1,0 +1,13 @@
+<launch>
+
+<node pkg="mpl_control" name="grasp_server" type="grasp_server" args="/joint_states:=/mpl_right_arm/wrapped_joint_states"/>
+<node pkg="gazebo_grasp_plugin_ros" name="grasp_event_republisher" type="grasp_event_republisher"/>
+<node pkg="box_blocks_experiment" name="grasp_repub" type="grasp_repub.py"/>
+<!-- <node pkg="joy" name="joy_node" type="joy_node"/> -->
+<node pkg="gaze" name="interpret_gaze" type="interpret_gaze"/>
+<node pkg="mpl_control" name="pickplace" type="pick_place" args="/joint_states:=/mpl_right_arm/wrapped_joint_states"/>
+
+
+
+
+</launch>

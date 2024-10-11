@@ -1,0 +1,13 @@
+<launch>
+
+<arg name="testing" default="false" />
+
+<node pkg="mpl_control" name="grasp_server" type="grasp_server" args="/joint_states:=/mpl_right_arm/wrapped_joint_states"/>
+<node pkg="gazebo_grasp_plugin_ros" name="grasp_event_republisher" type="grasp_event_republisher"/>
+<node pkg="box_blocks_experiment" name="grasp_repub" type="grasp_repub.py"/>
+<node if="$(arg testing)" name="joy_node" pkg="joy" type="joy_node" >
+  <param name="autorepeat_rate" type="double" value="100.0" />
+</node>
+<!-- <node unless="$(arg testing)" name="emg_node" pkg="libemg_ros" type="classify_rosnode" /> -->
+
+</launch>

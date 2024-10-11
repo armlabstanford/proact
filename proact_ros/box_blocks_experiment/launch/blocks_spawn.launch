@@ -1,0 +1,33 @@
+<launch>
+    <arg name="mocap_on_hl" default="1"/>
+    <arg name="participant" default="1"/> <!-- 1, 2, 3, 4, 5, 6, 7, 8 -->
+    <arg name="trial" default="1"/> <!--1, 2, 3-->
+
+    <rosparam command="load" file="$(find box_blocks_experiment)/config/participant$(arg participant)_trial$(arg trial).yaml"/>
+
+    <param name="red_block_description" command="$(find xacro)/xacro $(find box_blocks_experiment)/models/red_block.urdf" />
+    <param name="blue_block_description" command="$(find xacro)/xacro $(find box_blocks_experiment)/models/blue_block.urdf" />
+
+    <!-- spawn blocks -->
+    <node pkg="box_blocks_experiment" name="spawn_blocks" type="blocks_spawn.sh"/>
+
+    <!-- publish to tf tree -->
+    <node name="cylinder2rviz_red1" pkg="topic_utils" type="gazebo2tf.py" args="redcylinder1 ground_plane world"/>
+    <node name="cylinder2rviz_blue1" pkg="topic_utils" type="gazebo2tf.py" args="bluecylinder1 ground_plane world"/>
+    <node name="cylinder2rviz_red2" pkg="topic_utils" type="gazebo2tf.py" args="redcylinder2 ground_plane world"/>
+    <node name="cylinder2rviz_blue2" pkg="topic_utils" type="gazebo2tf.py" args="bluecylinder2 ground_plane world"/>
+    
+    <!-- publish pose for Unity -->
+    <node if="$(arg mocap_on_hl)" name="red_block1_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/red_block1_pose_msg hololens_world_test redcylinder1"/>
+    <node unless="$(arg mocap_on_hl)" name="red_block1_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/red_block1_pose_msg hololens_world redcylinder1"/>    
+
+    <node if="$(arg mocap_on_hl)" name="blue_block1_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/blue_block1_pose_msg hololens_world_test bluecylinder1"/>
+    <node unless="$(arg mocap_on_hl)" name="blue_block1_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/blue_block1_pose_msg hololens_world bluecylinder1"/>    
+
+    <node if="$(arg mocap_on_hl)" name="red_block2_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/red_block2_pose_msg hololens_world_test redcylinder2"/>
+    <node unless="$(arg mocap_on_hl)" name="red_block2_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/red_block2_pose_msg hololens_world redcylinder2"/>    
+
+    <node if="$(arg mocap_on_hl)" name="blue_block2_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/blue_block2_pose_msg hololens_world_test bluecylinder2"/>
+    <node unless="$(arg mocap_on_hl)" name="blue_block2_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/blue_block2_pose_msg hololens_world bluecylinder2"/>  
+
+</launch>

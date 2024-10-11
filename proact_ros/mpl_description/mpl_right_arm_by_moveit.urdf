@@ -1,0 +1,1215 @@
+<?xml version="1.0" ?>
+<robot name="mpl_right_arm">
+    <joint name="dummy_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="mpl_right_arm__forequarter_link" />
+        <origin xyz="0.0 0.0 0.0" rpy="1.57 0.0 0.0 " />
+    </joint>
+    <joint name="mpl_right_arm__shoulder" type="revolute">
+        <parent link="mpl_right_arm__forequarter_link" />
+        <child link="mpl_right_arm__shoulder_link" />
+        <origin xyz="0.0 0.0 0.0" rpy="0       0      0.0" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.4" upper="1.53" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__humerus" type="revolute">
+        <parent link="mpl_right_arm__shoulder_link" />
+        <child link="mpl_right_arm__humerus_link" />
+        <origin xyz="1.6400e-03 -1.0000e-05  1.2058e-01" rpy="0       0      -0.01153" />
+        <!-- <origin xyz="0.05164 0  1.2058e-01" rpy="0       0      -0.01153" /> -->
+        <axis xyz="1 0 0" />
+        <!-- <limit lower="-3.14" upper="0.345" effort="10000.0" velocity="0.5" /> -->
+        <!-- avoid singularity -->
+        <limit lower="-1.35" upper="0.345" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__elbow" type="revolute">
+        <parent link="mpl_right_arm__humerus_link" />
+        <child link="mpl_right_arm__elbow_link" />
+        <origin xyz="-0.00164 -0.15006  0.01389" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="-0.697" upper="1.57" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__forearm" type="revolute">
+        <parent link="mpl_right_arm__elbow_link" />
+        <child link="mpl_right_arm__forearm_link" />
+        <origin xyz="0.01    -0.14441 -0.01534" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <!-- <limit lower="0.0" upper="2.61" effort="10000.0" velocity="0.5" /> -->
+        <!-- avoid singularity -->
+        <limit lower="0.044" upper="2.61" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__wristy" type="revolute">
+        <parent link="mpl_right_arm__forearm_link" />
+        <child link="mpl_right_arm__wristy_link" />
+        <origin xyz="3.0000e-05 -1.8543e-01  1.6000e-02" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="-1.57" upper="1.57" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__wristx" type="revolute">
+        <parent link="mpl_right_arm__wristy_link" />
+        <child link="mpl_right_arm__wristx_link" />
+        <origin xyz="-3.000e-05 -4.764e-02  2.030e-03" rpy="0 0 0" />
+        <axis xyz="0  0 -1" />
+        <limit lower="-0.261" upper="0.785" effort="10000.0" velocity="0.5" />
+        <safety_controller k_position="100" k_velocity="100" soft_lower_limit="-0.211" soft_upper_limit="0.735"/>
+    </joint>
+    <joint name="mpl_right_arm__wristz" type="revolute">
+        <parent link="mpl_right_arm__wristx_link" />
+        <child link="mpl_right_arm__wristz_link" />
+        <origin xyz="0.00018 -0.03    -0.00209" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="-1.04" upper="1.04" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__index0" type="revolute">
+        <parent link="mpl_right_arm__wristz_link" />
+        <child link="mpl_right_arm__index0_link" />
+        <origin xyz="0.03549 -0.0658   0.00101" rpy="0      0.17453 0" />
+        <axis xyz="0  0 -1" />
+        <limit lower="-0.345" upper="0.0" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__index1" type="revolute">
+        <parent link="mpl_right_arm__index0_link" />
+        <child link="mpl_right_arm__index1_link" />
+        <origin xyz="6.000e-05 -1.799e-02  0.000e+00" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="-0.785" upper="1.57" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__index2" type="revolute">
+        <parent link="mpl_right_arm__index1_link" />
+        <child link="mpl_right_arm__index2_link" />
+        <origin xyz="0.00108 -0.0435   0.0005" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="1.72" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__index3" type="revolute">
+        <parent link="mpl_right_arm__index2_link" />
+        <child link="mpl_right_arm__index3_link" />
+        <origin xyz="-0.00063 -0.0245   0" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="1.38" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__middle0" type="revolute">
+        <parent link="mpl_right_arm__wristz_link" />
+        <child link="mpl_right_arm__middle0_link" />
+        <origin xyz="0.01281 -0.0779   0.00544" rpy="0.08726 0      0" />
+        <axis xyz="0  0 -1" />
+        <limit lower="0.0" upper="0.0" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__middle1" type="revolute">
+        <parent link="mpl_right_arm__middle0_link" />
+        <child link="mpl_right_arm__middle1_link" />
+        <origin xyz="6.0e-05 -1.8e-02  0.0e+00" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="-0.785" upper="1.57" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__middle2" type="revolute">
+        <parent link="mpl_right_arm__middle1_link" />
+        <child link="mpl_right_arm__middle2_link" />
+        <origin xyz="0.00108 -0.04349  0.0005" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="1.73" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__middle3" type="revolute">
+        <parent link="mpl_right_arm__middle2_link" />
+        <child link="mpl_right_arm__middle3_link" />
+        <origin xyz="-0.00063 -0.0245   0" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="1.38" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__pinky0" type="revolute">
+        <parent link="mpl_right_arm__wristz_link" />
+        <child link="mpl_right_arm__pinky0_link" />
+        <origin xyz="-0.03062 -0.0554  -0.00563" rpy="0      -0.17453  0" />
+        <axis xyz="0  0 -1" />
+        <limit lower="0.0" upper="0.345" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__pinky1" type="revolute">
+        <parent link="mpl_right_arm__pinky0_link" />
+        <child link="mpl_right_arm__pinky1_link" />
+        <origin xyz="6.000e-05 -1.789e-02  0.000e+00" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="-0.785" upper="1.57" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__pinky2" type="revolute">
+        <parent link="mpl_right_arm__pinky1_link" />
+        <child link="mpl_right_arm__pinky2_link" />
+        <origin xyz="0.00057 -0.033    0.0005" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="1.72" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__pinky3" type="revolute">
+        <parent link="mpl_right_arm__pinky2_link" />
+        <child link="mpl_right_arm__pinky3_link" />
+        <origin xyz="-4.00e-05 -1.75e-02  0.00e+00" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="1.38" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__ring0" type="revolute">
+        <parent link="mpl_right_arm__wristz_link" />
+        <child link="mpl_right_arm__ring0_link" />
+        <origin xyz="-0.00986 -0.06669  0.00151" rpy="0      -0.17453  0" />
+        <axis xyz="0  0 -1" />
+        <limit lower="0.0" upper="0.345" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__ring1" type="revolute">
+        <parent link="mpl_right_arm__ring0_link" />
+        <child link="mpl_right_arm__ring1_link" />
+        <origin xyz="6.000e-05 -1.799e-02  0.000e+00" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="-0.785" upper="1.57" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__ring2" type="revolute">
+        <parent link="mpl_right_arm__ring1_link" />
+        <child link="mpl_right_arm__ring2_link" />
+        <origin xyz="0.00108 -0.0435   0.0005" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="1.72" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__ring3" type="revolute">
+        <parent link="mpl_right_arm__ring2_link" />
+        <child link="mpl_right_arm__ring3_link" />
+        <origin xyz="-0.00063 -0.0245   0" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="1.38" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__thumb0" type="revolute">
+        <parent link="mpl_right_arm__wristz_link" />
+        <child link="mpl_right_arm__thumb0_link" />
+        <origin xyz="0.03398 -0.02069 -0.01009" rpy="0.08737 -0.03058 -0.26536" />
+        <axis xyz="0 1 0" />
+        <limit lower="0.0" upper="2.07" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__thumb1" type="revolute">
+        <parent link="mpl_right_arm__thumb0_link" />
+        <child link="mpl_right_arm__thumb1_link" />
+        <origin xyz="0.02091 -0.00084  0.00144" rpy="0 0 0" />
+        <axis xyz="0  0 -1" />
+        <limit lower="0.0" upper="1.03" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__thumb2" type="revolute">
+        <parent link="mpl_right_arm__thumb1_link" />
+        <child link="mpl_right_arm__thumb2_link" />
+        <origin xyz="0.0335   0      -0.00074" rpy="0 0 0" />
+        <axis xyz="0  0 -1" />
+        <limit lower="0.0" upper="1.03" effort="10000.0" velocity="0.5" />
+    </joint>
+    <joint name="mpl_right_arm__thumb3" type="revolute">
+        <parent link="mpl_right_arm__thumb2_link" />
+        <child link="mpl_right_arm__thumb3_link" />
+        <origin xyz="0.0335  0      0.00108" rpy="0 0 0" />
+        <axis xyz="0  0 -1" />
+        <limit lower="-0.819" upper="1.28" effort="10000.0" velocity="0.5" />
+    </joint>
+
+    <link name="base_link">
+          <kinematic>1</kinematic>
+    </link>
+
+    <link name="mpl_right_arm__forequarter_link">
+
+<inertial>
+            <origin xyz="0 0 0.05544" rpy="0 0 0" />
+            <mass value="0.0363799" />
+            <inertia ixx="3.64e-05" ixy="0" ixz="0" iyy="3.64e-05" iyz="0" izz="3.64e-05" />
+            <!-- fix this -->
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0.05544" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.03784" radius="0.038" />
+            </geometry>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.05544" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.03784" radius="0.038" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="mpl_right_arm__shoulder_link">
+
+<inertial>
+            <mass value="0.0363799" />
+            <origin xyz="0.00053 0.002   0.03327" rpy="0 0 0" />
+            <inertia ixx="3.73005e-05" ixy="5.68571e-07" ixz="-7.59543e-07" iyy="2.60558e-05" iyz="-9.15512e-07" izz="3.86186e-05" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      0      0.12778" rpy="0       0      -0.01153" />
+            <geometry>
+                <sphere radius="0.03495" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0      0     0.1122" rpy="0       0      -0.01153" />
+            <geometry>
+                <cylinder radius="0.038" length="0.03784" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0      0      0.09328" rpy="0       0      -0.01153" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/shoulder.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__humerus_link">
+
+<inertial>
+            <mass value="0.0857896" />
+            <origin xyz="-0.00523 -0.08348  0.01084" rpy="0 0 0" />
+            <inertia ixx="0.000259543" ixy="-4.20463e-06" ixz="9.18286e-07" iyy="0.000134353" iyz="-1.37928e-05" izz="0.000284981" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="-0.00164 -0.07024  0.01366" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.037035" length="0.15849" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/humerus.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__elbow_link">
+
+<inertial>
+            <mass value="0.0351897" />
+            <origin xyz="0.00116 -0.07408 -0.00731" rpy="0 0 0" />
+            <inertia ixx="0.000106583" ixy="-5.90862e-06" ixz="-2.34382e-06" iyy="3.29639e-05" iyz="1.56515e-05" izz="0.000106705" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.05957  0.00147" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.03447" length="0.11914" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0.00997 -0.14449 -0.0245" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.036" length="0.018" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/elbow.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__forearm_link">
+
+<inertial>
+            <mass value="0.0997005" />
+            <origin xyz="-0.00058 -0.07331  0.02155" rpy="0 0 0" />
+            <inertia ixx="0.0004998" ixy="-5.83136e-06" ixz="3.56083e-07" iyy="0.00010215" iyz="3.76069e-05" izz="0.000498862" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      0      0.02855" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.03567" length="0.0571" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0      -0.10745  0.016" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.035" length="0.148" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/forearm.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__wristy_link">
+
+<inertial>
+            <mass value="0.0272932" />
+            <origin xyz="-7.000e-05 -2.177e-02 -2.800e-04" rpy="0 0 0" />
+            <inertia ixx="1.77029e-05" ixy="7.89061e-09" ixz="4.33867e-09" iyy="2.46772e-05" iyz="1.77331e-07" izz="1.7112e-05" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0    -0.025  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.03447" length="0.05" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/wristy.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__wristx_link">
+
+<inertial>
+            <mass value="0.010691" />
+            <origin xyz="0.00139 -0.00975 -0.00252" rpy="0 0 0" />
+            <inertia ixx="3.27995e-06" ixy="-1.50151e-07" ixz="5.11904e-09" iyy="4.22942e-06" iyz="-4.20007e-08" izz="5.04229e-06" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0       0      -0.00314" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.01473" length="0.04478" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0.0236  -0.02969 -0.00239" rpy="0     1.5707 0" />
+            <geometry>
+                <cylinder radius="0.013175" length="0.005" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_2">
+            <origin xyz="-0.0236  -0.02969 -0.00239" rpy="0     1.5707 0" />
+            <geometry>
+                <cylinder radius="0.013175" length="0.005" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/wristx.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__wristz_link">
+
+<inertial>
+            <mass value="0.125889" />
+            <origin xyz="0.00368 -0.03587  0.00265" rpy="0 0 0" />
+            <inertia ixx="8.18077e-05" ixy="-9.44149e-06" ixz="3.88366e-06" iyy="9.81482e-05" iyz="-4.84151e-08" izz="0.000131783" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0.00206 -0.00047  0.00046" rpy="1.5707 0     1.5707" />
+            <geometry>
+                <cylinder radius="0.01411" length="0.04482" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_palm">
+            <origin xyz="0.002   -0.03739  0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.07928 0.08316 0.04402" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/wristz.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+        <visual name="mpl_right_arm__visual_palm">
+            <origin xyz="0.02562 0      0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/palm.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__index0_link">
+
+<inertial>
+            <mass value="0.00295579" />
+            <origin xyz="-0.00014 -0.00548  0.0002" rpy="0 0 0" />
+            <inertia ixx="4.22375e-07" ixy="4.23313e-09" ixz="5.00708e-10" iyy="1.94048e-07" iyz="-4.58697e-09" izz="4.02188e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.01339  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.028" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/index0.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__index1_link">
+
+<inertial>
+            <mass value="0.00478235" />
+            <origin xyz="0.0004  -0.02131  0.00065" rpy="0 0 0" />
+            <inertia ixx="8.18593e-07" ixy="-1.2874e-09" ixz="1.78664e-10" iyy="3.06547e-07" iyz="-1.18998e-08" izz="7.95406e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.02782  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.02781" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/index1.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__index2_link">
+
+<inertial>
+            <mass value="0.00344764" />
+            <origin xyz="-0.00084 -0.01268  0.00057" rpy="0 0 0" />
+            <inertia ixx="3.63785e-07" ixy="-6.41791e-09" ixz="7.97765e-10" iyy="1.07105e-07" iyz="2.03273e-08" izz="3.57435e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.01152  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.0075" length="0.029" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0      -0.02502  0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.0075" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/index2.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__index3_link">
+
+<inertial>
+            <mass value="0.00274415" />
+            <origin xyz="4.000e-05 -1.253e-02  9.000e-04" rpy="0 0 0" />
+            <inertia ixx="1.09202e-07" ixy="-3.99165e-12" ixz="-5.84792e-12" iyy="7.79728e-08" iyz="2.77966e-09" izz="1.19449e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.00688  0.0001" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.0074" length="0.01376" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0     -0.015   0.0001" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.0072" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/index3.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__middle0_link">
+
+<inertial>
+            <mass value="0.00295579" />
+            <origin xyz="-0.00014 -0.00548  0.0002" rpy="0 0 0" />
+            <inertia ixx="4.22374e-07" ixy="4.23312e-09" ixz="5.00706e-10" iyy="1.94048e-07" iyz="-4.58725e-09" izz="4.02189e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.01339  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.028" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/middle0.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__middle1_link">
+
+<inertial>
+            <mass value="0.00478229" />
+            <origin xyz="0.0004  -0.02131  0.00065" rpy="0 0 0" />
+            <inertia ixx="8.1859e-07" ixy="-1.28827e-09" ixz="1.7867e-10" iyy="3.06545e-07" iyz="-1.19001e-08" izz="7.95403e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0    -0.025  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.03459" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/middle1.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__middle2_link">
+
+<inertial>
+            <mass value="0.00344765" />
+            <origin xyz="-0.00084 -0.01268  0.00057" rpy="0 0 0" />
+            <inertia ixx="3.63785e-07" ixy="-6.41794e-09" ixz="7.97197e-10" iyy="1.07106e-07" iyz="2.03275e-08" izz="3.57435e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.01152  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.0075" length="0.029" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0      -0.02302  0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.0075" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/middle2.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__middle3_link">
+
+<inertial>
+            <mass value="0.00274417" />
+            <origin xyz="4.000e-05 -1.253e-02  9.000e-04" rpy="0 0 0" />
+            <inertia ixx="1.09202e-07" ixy="-3.78001e-12" ixz="-5.35395e-12" iyy="7.79738e-08" iyz="2.77969e-09" izz="1.1945e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.00688  0.0001" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.0074" length="0.01376" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0     -0.015   0.0001" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.0072" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/middle3.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__pinky0_link">
+
+<inertial>
+            <mass value="0.00295579" />
+            <origin xyz="-0.00014 -0.00538  0.0002" rpy="0 0 0" />
+            <inertia ixx="4.22375e-07" ixy="4.23309e-09" ixz="5.0054e-10" iyy="1.94048e-07" iyz="-4.58693e-09" izz="4.02189e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.01339  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.028" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/pinky0.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__pinky1_link">
+
+<inertial>
+            <mass value="0.0034099" />
+            <origin xyz="0.00045 -0.01604  0.00092" rpy="0 0 0" />
+            <inertia ixx="4.03282e-07" ixy="-1.80186e-09" ixz="-1.42049e-09" iyy="2.20449e-07" iyz="-9.60174e-09" izz="3.83588e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.02082  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.02381" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/pinky1.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__pinky2_link">
+
+<inertial>
+            <mass value="0.00250622" />
+            <origin xyz="-0.00027 -0.00914  0.00073" rpy="0 0 0" />
+            <inertia ixx="1.78939e-07" ixy="-3.88097e-09" ixz="3.24897e-10" iyy="7.59883e-08" iyz="1.17825e-08" izz="1.74551e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0     -0.0076  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.0075" length="0.029" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/pinky2.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__pinky3_link">
+
+<inertial>
+            <mass value="0.00273265" />
+            <origin xyz="3.00e-05 -1.25e-02  9.10e-04" rpy="0 0 0" />
+            <inertia ixx="1.08629e-07" ixy="2.84178e-11" ixz="1.88869e-11" iyy="7.78965e-08" iyz="2.64344e-09" izz="1.18971e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.00688  0.0001" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.0074" length="0.01376" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0     -0.015   0.0001" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.0072" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/pinky3.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__ring0_link">
+
+<inertial>
+            <mass value="0.00295579" />
+            <origin xyz="-0.00014 -0.00548  0.0002" rpy="0 0 0" />
+            <inertia ixx="4.22375e-07" ixy="4.23309e-09" ixz="5.00535e-10" iyy="1.94048e-07" iyz="-4.58693e-09" izz="4.02189e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.01339  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.028" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/ring0.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__ring1_link">
+
+<inertial>
+            <mass value="0.00478232" />
+            <origin xyz="0.0004  -0.02131  0.00065" rpy="0 0 0" />
+            <inertia ixx="8.18592e-07" ixy="-1.28783e-09" ixz="1.78814e-10" iyy="3.06546e-07" iyz="-1.19e-08" izz="7.95405e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.02505  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.03095" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/ring1.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__ring2_link">
+
+<inertial>
+            <mass value="0.00344767" />
+            <origin xyz="-0.00084 -0.01268  0.00057" rpy="0 0 0" />
+            <inertia ixx="3.63785e-07" ixy="-6.41744e-09" ixz="7.98585e-10" iyy="1.07107e-07" iyz="2.03271e-08" izz="3.57437e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.01152  0" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.0075" length="0.029" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0      -0.02302  0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.0075" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/ring2.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__ring3_link">
+
+<inertial>
+            <mass value="0.00274416" />
+            <origin xyz="4.000e-05 -1.253e-02  9.000e-04" rpy="0 0 0" />
+            <inertia ixx="1.09202e-07" ixy="-3.99392e-12" ixz="-5.71287e-12" iyy="7.79732e-08" iyz="2.77976e-09" izz="1.1945e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0      -0.00688  0.0001" rpy="1.5707 0     0" />
+            <geometry>
+                <cylinder radius="0.0074" length="0.01376" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0     -0.015   0.0001" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.0072" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/ring3.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__thumb0_link">
+
+<inertial>
+            <mass value="0.00336696" />
+            <origin xyz="0.00863 -0.00015 -0.00094" rpy="0 0 0" />
+            <inertia ixx="2.44266e-07" ixy="-1.56849e-08" ixz="4.05807e-08" iyy="4.49559e-07" iyz="3.27736e-09" izz="4.40718e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0.02   -0.001   0.0015" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.008221" length="0.023" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0.01   -0.001   0.0015" rpy="0 0 0" />
+            <geometry>
+                <box size="0.0202 0.0155 0.023" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/thumb0.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__thumb1_link">
+
+<inertial>
+            <mass value="0.00596213" />
+            <origin xyz="0.01902  0.00036 -0.00018" rpy="0 0 0" />
+            <inertia ixx="5.36423e-07" ixy="-7.9696e-09" ixz="-3.66761e-08" iyy="9.87852e-07" iyz="-1.23551e-09" izz="9.4184e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="-0.00055  0      -0.00025" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.00688" length="0.0188" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0.03381 0      0" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.00688" length="0.02176" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_2">
+            <origin xyz="0.01612 0      0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.03273 0.01376 0.02176" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/thumb1.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__thumb2_link">
+
+<inertial>
+            <mass value="0.00599792" />
+            <origin xyz="0.01889 0.00037 0.00065" rpy="0 0 0" />
+            <inertia ixx="5.17385e-07" ixy="-1.08936e-08" ixz="-3.49348e-08" iyy="9.9639e-07" iyz="5.15558e-10" izz="9.6228e-07" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0.03415 0      0.001" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.00679" length="0.02236" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0.01493 0      0.001" rpy="0 0 0" />
+            <geometry>
+                <box size="0.03095 0.015 0.02236" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/thumb2.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="mpl_right_arm__thumb3_link">
+
+<inertial>
+            <mass value="0.00274415" />
+            <origin xyz="0.01234 -0.00145  0" rpy="0 0 0" />
+            <inertia ixx="1.73183661e-7" ixy="0" ixz="0" iyy="3.66498619e-7" iyz="2.77966e-09" izz="3.59291321e-7" />
+        </inertial>
+
+        <collision name="mpl_right_arm__collision">
+            <origin xyz="0.01507 -0.00219  0.0001" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.0074" length="0.01476" />
+            </geometry>
+        </collision>
+        <collision name="mpl_right_arm__collision_1">
+            <origin xyz="0.0195 0     0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.008" />
+            </geometry>
+        </collision>
+        <visual name="mpl_right_arm__visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://mpl_description/meshes/thumb3.stl" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+
+<transmission name="trans_mpl_right_arm__shoulder">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__shoulder">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__shoulder_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__humerus">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__humerus">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__humerus_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__elbow">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__elbow">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__elbow_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__forearm">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__forearm">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__forearm_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__wristy">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__wristy">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__wristy_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__wristx">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__wristx">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__wristx_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__wristz">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__wristz">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__wristz_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__index0">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__index0">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__index0_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__index1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__index1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__index1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__index2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__index2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__index2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__index3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__index3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__index3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__middle0">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__middle0">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__middle0_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__middle1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__middle1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__middle1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__middle2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__middle2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__middle2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__middle3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__middle3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__middle3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__pinky0">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__pinky0">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__pinky0_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__pinky1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__pinky1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__pinky1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__pinky2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__pinky2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__pinky2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__pinky3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__pinky3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__pinky3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__ring0">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__ring0">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__ring0_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__ring1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__ring1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__ring1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__ring2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__ring2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__ring2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__ring3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__ring3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__ring3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__thumb0">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__thumb0">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__thumb0_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__thumb1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__thumb1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__thumb1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__thumb2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__thumb2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__thumb2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_mpl_right_arm__thumb3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mpl_right_arm__thumb3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mpl_right_arm__thumb3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/mpl_right_arm</robotNamespace>
+        </plugin>
+    </gazebo>
+    <gazebo reference="base_link">
+      <!-- <turnGravityOff>1</turnGravityOff> -->
+      <kinematic>1</kinematic>
+    </gazebo>
+
+    <gazebo> 
+    <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so"> 
+    <arm> 
+    <arm_name>"mpl_right_arm"</arm_name> 
+    <palm_link> mpl_right_arm__wristz_link </palm_link> 
+    <gripper_link> mpl_right_arm__thumb3_link </gripper_link> 
+    <!-- <gripper_link> mpl_right_arm__index3_link </gripper_link>  -->
+    <gripper_link> mpl_right_arm__middle3_link </gripper_link> 
+    <gripper_link> mpl_right_arm__ring3_link </gripper_link> 
+    </arm> 
+    <forces_angle_tolerance>100</forces_angle_tolerance> 
+    <update_rate>4</update_rate> 
+    <grip_count_threshold>4</grip_count_threshold> 
+    <max_grip_count>8</max_grip_count> 
+    <release_tolerance>0.03</release_tolerance> 
+    <disable_collisions_on_attach>false</disable_collisions_on_attach> 
+    <contact_topic>__default_topic__</contact_topic> 
+    </plugin> 
+    </gazebo> 
+
+</robot>

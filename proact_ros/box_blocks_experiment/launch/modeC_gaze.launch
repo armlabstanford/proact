@@ -1,0 +1,13 @@
+<launch>
+<arg name="mode" default="0"/> 
+<!-- 0 for gaze only, 1 if including color -->
+<node pkg="gaze" name="interpret_gaze" type="interpret_gaze_color" output="screen" args="$(arg mode)"/>
+<node pkg="mpl_control" name="pickplace" type="pick_place">
+    <remap from="/joint_states" to="/mpl_right_arm/wrapped_joint_states"/>
+</node>
+
+<!-- for logs -->
+<node pkg="topic_utils" name="head_ros" type="tf2posemsg.py" args="/hololens_unity_camera_pose_ros world hololens_unity_camera"/>
+<node pkg="gaze" name="log_gaze" type="interpret_gaze_logger" output="screen"/>
+
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="physical_to_virtual" args="0 0 0.036 0 0 -1.57 Clipboard virtual_ref"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_ref_to_holoworld" args="-0.3 0 0 0 0 0 virtual_ref holoworld"/>
+    <node pkg="topic_utils" name="hl_head_to_world" type="posemsg2tf.py" args="/hololens/head holoworld holohead"/>
+</launch>
+
+<!-- After launching this, run the following -->
+<!-- rosrun tf tf_echo Hololens3 holohead -->
+<!-- and then put the values in hololworld_with_mocap.py, restart the system and launch holoworld_with_mocap.launch -->

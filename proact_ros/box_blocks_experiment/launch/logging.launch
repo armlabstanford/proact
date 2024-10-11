@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="participant" default="1" />
+    <arg name="mode" default="1" />
+    <arg name="trial" default="1" />
+    <arg name="practice" default="1" />
+
+    <arg name="time_now" default="$(eval eval ('_' + '_import_' + '_(\'datetime\')').datetime.now().strftime('%Y-%m-%d-%H-%M-%S'))"/>
+
+    <node pkg="rosbag" type="record"  name="rosbag_record"
+    args="-O $(find box_blocks_experiment)/data/participant$(arg participant)-mode$(arg mode)-trial$(arg trial)-$(arg time_now)-pilot.bag
+    /clock
+    /grasp_event_republisher/grasp_events
+    /grasp_status
+    /joy
+    /mpl_right_arm/wrapped_joint_states
+    /mode
+    /success
+    /tf
+    /tf_static
+    /emg
+    /gaze_table_hit_location_logging
+    /gaze_table_hit_location
+    /gaze_hit_location_unity
+    /gaze_target_object
+    /red1_dist
+    /red2_dist
+    /blue1_dist
+    /blue2_dist
+    /gazebo/model_states
+    /gazebo/link_states
+    /current_block
+    /hololens_unity_camera_pose_ros
+    /gaze_position_ros
+    /gaze_direction_ros
+    /rosout
+    "
+    />
+
+    <node pkg="rosbag" type="record"  name="rosbag_record_spare"
+    args="-O $(find box_blocks_experiment)/data/participant$(arg participant)-mode$(arg mode)-trial$(arg trial)-$(arg time_now)-extra-pilot.bag
+    /hololens/head
+    /gaze_position
+    /gaze_direction
+    /place_location_selected
+    /rosworld_pose_msg
+    "
+    />
+
+</launch>

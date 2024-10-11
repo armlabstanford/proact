@@ -1,0 +1,186 @@
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - mpl_right_arm__shoulder
+    - mpl_right_arm__humerus
+    - mpl_right_arm__elbow
+    - mpl_right_arm__forearm
+    - mpl_right_arm__wristy
+    - mpl_right_arm__wristx
+    - mpl_right_arm__wristz
+  gains:
+    mpl_right_arm__shoulder:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__humerus:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__elbow:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__forearm:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__wristy:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__wristx:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__wristz:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+  constraints:
+    mpl_right_arm__shoulder:
+      goal: 0.1
+    mpl_right_arm__humerus:
+      goal: 0.1
+    mpl_right_arm__elbow:
+      goal: 0.1
+    mpl_right_arm__forearm:
+      goal: 0.1
+    mpl_right_arm__wristx:
+      goal: 0.1
+    mpl_right_arm__wristy:
+      goal: 0.1
+    mpl_right_arm__wristz:
+      goal: 0.1
+
+hand_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - mpl_right_arm__index0
+    - mpl_right_arm__index1
+    - mpl_right_arm__index2
+    - mpl_right_arm__index3
+    - mpl_right_arm__middle0
+    - mpl_right_arm__middle1
+    - mpl_right_arm__middle2
+    - mpl_right_arm__middle3
+    - mpl_right_arm__pinky0
+    - mpl_right_arm__pinky1
+    - mpl_right_arm__pinky2
+    - mpl_right_arm__pinky3
+    - mpl_right_arm__ring0
+    - mpl_right_arm__ring1
+    - mpl_right_arm__ring2
+    - mpl_right_arm__ring3
+    - mpl_right_arm__thumb0
+    - mpl_right_arm__thumb1
+    - mpl_right_arm__thumb2
+    - mpl_right_arm__thumb3
+  gains:
+    mpl_right_arm__index0:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__index1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__index2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__index3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__middle0:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__middle1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__middle2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__middle3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__pinky0:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__pinky1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__pinky2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__pinky3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__ring0:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__ring1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__ring2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__ring3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__thumb0:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__thumb1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__thumb2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    mpl_right_arm__thumb3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

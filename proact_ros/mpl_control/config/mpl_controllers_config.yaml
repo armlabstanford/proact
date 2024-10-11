@@ -1,0 +1,214 @@
+mpl_right_arm:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  arm_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__shoulder
+      - mpl_right_arm__humerus
+      - mpl_right_arm__elbow
+      - mpl_right_arm__forearm
+      - mpl_right_arm__wristy
+      - mpl_right_arm__wristx
+      - mpl_right_arm__wristz
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  shoulder_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__shoulder
+      - mpl_right_arm__humerus
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  elbow_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__forearm
+      - mpl_right_arm__elbow
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  wrist_zx_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__wristz
+      - mpl_right_arm__wristx
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  j0_controller: # shoulder flexion
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__shoulder
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  j1_controller: # shoulder adduction
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__humerus
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  j2_controller: # internal rotation
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__elbow
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  j3_controller: # elbow flexion
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__forearm
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  j4_controller: # wrist pronation
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__wristy
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  j5_controller: # ulnar deviation
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__wristx
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25  
+
+  j6_controller: # wrist flexion
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__wristz
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+    state_publish_rate: 25
+
+  ## if controlling arm dofs two at a time (e.g. with joystick)
+  
+  # shoulder_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - mpl_right_arm__shoulder
+  #     - mpl_right_arm__humerus
+
+  #   constraints:
+  #     goal_time: 2.0
+  #     stopped_velocity_tolerance: 0
+
+  #   state_publish_rate: 25
+
+  # elbow_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - mpl_right_arm__forearm
+  #     - mpl_right_arm__elbow
+
+  #   constraints:
+  #     goal_time: 2.0
+  #     stopped_velocity_tolerance: 0
+
+  #   state_publish_rate: 25
+
+  # wrist_zx_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - mpl_right_arm__wristz
+  #     - mpl_right_arm__wristx
+
+  #   constraints:
+  #     goal_time: 2.0
+  #     stopped_velocity_tolerance: 0
+
+  #   state_publish_rate: 25
+
+  # wrist_y_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - mpl_right_arm__wristy
+
+  #   constraints:
+  #     goal_time: 2.0
+  #     stopped_velocity_tolerance: 0
+
+  #   state_publish_rate: 25
+
+  hand_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - mpl_right_arm__index0
+      - mpl_right_arm__index1
+      - mpl_right_arm__index2
+      - mpl_right_arm__index3
+      - mpl_right_arm__middle0
+      - mpl_right_arm__middle1
+      - mpl_right_arm__middle2
+      - mpl_right_arm__middle3
+      - mpl_right_arm__pinky0
+      - mpl_right_arm__pinky1
+      - mpl_right_arm__pinky2
+      - mpl_right_arm__pinky3
+      - mpl_right_arm__ring0
+      - mpl_right_arm__ring1
+      - mpl_right_arm__ring2
+      - mpl_right_arm__ring3
+      - mpl_right_arm__thumb0
+      - mpl_right_arm__thumb1
+      - mpl_right_arm__thumb2
+      - mpl_right_arm__thumb3
+
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0
+
+
+    state_publish_rate: 25

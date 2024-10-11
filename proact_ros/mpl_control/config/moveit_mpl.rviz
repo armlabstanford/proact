@@ -1,0 +1,819 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Grid1
+        - /MotionPlanning1
+        - /MotionPlanning1/Scene Robot1
+        - /MotionPlanning1/Planning Request1
+        - /MotionPlanning1/Planned Path1
+        - /TF1
+        - /TF1/Frames1
+        - /Pose1
+      Splitter Ratio: 0.7425600290298462
+    Tree Height: 276
+  - Class: rviz/Help
+    Name: Help
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz_visual_tools/RvizVisualToolsGui
+    Name: RvizVisualToolsGui
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Acceleration_Scaling_Factor: 1
+      Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: true
+      Move Group Namespace: ""
+      MoveIt_Allow_Approximate_IK: true
+      MoveIt_Allow_External_Program: true
+      MoveIt_Allow_Replanning: false
+      MoveIt_Allow_Sensor_Positioning: false
+      MoveIt_Planning_Attempts: 10
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Cartesian_Path: false
+      MoveIt_Use_Constraint_Aware_IK: true
+      MoveIt_Workspace:
+        Center:
+          X: 0
+          Y: 0
+          Z: 0
+        Size:
+          X: 2
+          Y: 2
+          Z: 2
+      Name: MotionPlanning
+      Planned Path:
+        Color Enabled: false
+        Interrupt Display: false
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          mpl_right_arm__elbow_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__forearm_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__forequarter_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__humerus_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__index0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__index1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__index2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__index3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__middle0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__middle1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__middle2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__middle3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__pinky0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__pinky1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__pinky2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__pinky3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__ring0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__ring1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__ring2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__ring3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__shoulder_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__thumb0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__thumb1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__thumb2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__thumb3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__wristx_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__wristy_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__wristz_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+        Loop Animation: false
+        Robot Alpha: 0.5
+        Robot Color: 150; 50; 150
+        Show Robot Collision: false
+        Show Robot Visual: true
+        Show Trail: false
+        State Display Time: 0.05 s
+        Trail Step Size: 1
+        Trajectory Topic: move_group/display_planned_path
+        Use Sim Time: false
+      Planning Metrics:
+        Payload: 1
+        Show Joint Torques: false
+        Show Manipulability: false
+        Show Manipulability Index: false
+        Show Weight Limit: false
+        TextHeight: 0.07999999821186066
+      Planning Request:
+        Colliding Link Color: 255; 0; 0
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0
+        Joint Violation Color: 255; 0; 255
+        Planning Group: mpl_arm
+        Query Goal State: false
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: move_group/monitored_planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 1
+        Scene Color: 50; 230; 50
+        Scene Display Time: 0.20000000298023224
+        Show Scene Geometry: true
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Scene Robot:
+        Attached Body Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          mpl_right_arm__elbow_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__forearm_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__forequarter_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__humerus_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__index0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__index1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__index2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__index3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__middle0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__middle1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__middle2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__middle3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__pinky0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__pinky1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__pinky2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__pinky3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__ring0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__ring1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__ring2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__ring3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__shoulder_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__thumb0_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__thumb1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__thumb2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__thumb3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__wristx_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__wristy_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          mpl_right_arm__wristz_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+        Robot Alpha: 0.5
+        Show Robot Collision: false
+        Show Robot Visual: true
+      Value: true
+      Velocity_Scaling_Factor: 1
+    - Class: rviz/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        Clipboard:
+          Value: true
+        Clipboard_filtered:
+          Value: true
+        HololensSG:
+          Value: true
+        Hololens_filtered:
+          Value: true
+        Optitrack_world:
+          Value: true
+        Shoulderpad:
+          Value: true
+        Shoulderpad_filtered:
+          Value: true
+        base_link:
+          Value: true
+        hololens_unity_camera:
+          Value: true
+        hololens_world_mocap:
+          Value: true
+        mpl_right_arm__elbow_link:
+          Value: false
+        mpl_right_arm__forearm_link:
+          Value: false
+        mpl_right_arm__forequarter_link:
+          Value: true
+        mpl_right_arm__humerus_link:
+          Value: true
+        mpl_right_arm__index0_link:
+          Value: false
+        mpl_right_arm__index1_link:
+          Value: false
+        mpl_right_arm__index2_link:
+          Value: false
+        mpl_right_arm__index3_link:
+          Value: false
+        mpl_right_arm__middle0_link:
+          Value: false
+        mpl_right_arm__middle1_link:
+          Value: false
+        mpl_right_arm__middle2_link:
+          Value: false
+        mpl_right_arm__middle3_link:
+          Value: false
+        mpl_right_arm__pinky0_link:
+          Value: false
+        mpl_right_arm__pinky1_link:
+          Value: false
+        mpl_right_arm__pinky2_link:
+          Value: false
+        mpl_right_arm__pinky3_link:
+          Value: false
+        mpl_right_arm__ring0_link:
+          Value: false
+        mpl_right_arm__ring1_link:
+          Value: false
+        mpl_right_arm__ring2_link:
+          Value: false
+        mpl_right_arm__ring3_link:
+          Value: false
+        mpl_right_arm__shoulder_link:
+          Value: false
+        mpl_right_arm__thumb0_link:
+          Value: false
+        mpl_right_arm__thumb1_link:
+          Value: false
+        mpl_right_arm__thumb2_link:
+          Value: false
+        mpl_right_arm__thumb3_link:
+          Value: false
+        mpl_right_arm__wristx_link:
+          Value: false
+        mpl_right_arm__wristy_link:
+          Value: false
+        mpl_right_arm__wristz_link:
+          Value: false
+        optitrack_world:
+          Value: true
+        tabletag_ros:
+          Value: true
+        world:
+          Value: true
+      Marker Alpha: 1
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        Optitrack_world:
+          Clipboard_filtered:
+            tabletag_ros:
+              world:
+                {}
+          Hololens_filtered:
+            {}
+          Shoulderpad_filtered:
+            {}
+          optitrack_world:
+            Clipboard:
+              {}
+            HololensSG:
+              hololens_unity_camera:
+                {}
+              hololens_world_mocap:
+                {}
+            Shoulderpad:
+              {}
+        base_link:
+          mpl_right_arm__forequarter_link:
+            mpl_right_arm__shoulder_link:
+              mpl_right_arm__humerus_link:
+                mpl_right_arm__elbow_link:
+                  mpl_right_arm__forearm_link:
+                    mpl_right_arm__wristy_link:
+                      mpl_right_arm__wristx_link:
+                        mpl_right_arm__wristz_link:
+                          mpl_right_arm__index0_link:
+                            mpl_right_arm__index1_link:
+                              mpl_right_arm__index2_link:
+                                mpl_right_arm__index3_link:
+                                  {}
+                          mpl_right_arm__middle0_link:
+                            mpl_right_arm__middle1_link:
+                              mpl_right_arm__middle2_link:
+                                mpl_right_arm__middle3_link:
+                                  {}
+                          mpl_right_arm__pinky0_link:
+                            mpl_right_arm__pinky1_link:
+                              mpl_right_arm__pinky2_link:
+                                mpl_right_arm__pinky3_link:
+                                  {}
+                          mpl_right_arm__ring0_link:
+                            mpl_right_arm__ring1_link:
+                              mpl_right_arm__ring2_link:
+                                mpl_right_arm__ring3_link:
+                                  {}
+                          mpl_right_arm__thumb0_link:
+                            mpl_right_arm__thumb1_link:
+                              mpl_right_arm__thumb2_link:
+                                mpl_right_arm__thumb3_link:
+                                  {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mpl_right_arm__elbow_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__forequarter_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__humerus_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__index0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__index1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__index2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__index3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__middle0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__middle1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__middle2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__middle3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__pinky0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__pinky1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__pinky2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__pinky3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__ring0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__ring1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__ring2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__ring3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__thumb0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__thumb1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__thumb2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__thumb3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__wristx_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__wristy_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mpl_right_arm__wristz_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz/Pose
+      Color: 255; 0; 255
+      Enabled: true
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: Pose
+      Queue Size: 10
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Arrow
+      Topic: /rviz/moveit/move_marker/goal_mpl_right_arm__wristz_link
+      Unreliable: false
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+  Value: true
+  Views:
+    Current:
+      Class: rviz/FrameAligned
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Invert Z Axis: false
+      Lock Camera: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.37999969720840454
+      Point towards: arbitrary
+      Position:
+        X: 4.809645652770996
+        Y: -0.1604396104812622
+        Z: 2.4415359497070312
+      Roll: 0
+      Target Frame: world
+      Yaw: 3.081589937210083
+    Saved:
+      - Class: rviz/FPS
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: FPS
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5707963705062866
+        Position:
+          X: 0.2923114001750946
+          Y: 0.6008346080780029
+          Z: -0.732756495475769
+        Roll: 0
+        Target Frame: world
+        Yaw: 3.1415927410125732
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1719
+  Help:
+    collapsed: false
+  Hide Left Dock: false
+  Hide Right Dock: false
+  MotionPlanning:
+    collapsed: false
+  MotionPlanning - Trajectory Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000100000000000003a30000061bfc0200000008fb000000100044006900730070006c006100790073010000006e000001820000018200fffffffb0000000800480065006c00700000000342000000bb000000d400fffffffb0000000a0056006900650077007301000001fc000001320000013200fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000002600000026fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000033a000002c9000002b800fffffffb00000024005200760069007a00560069007300750061006c0054006f006f006c0073004700750069010000060f0000007a0000007a00ffffff000007910000061b00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  RvizVisualToolsGui:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 2880
+  X: 568
+  Y: 160

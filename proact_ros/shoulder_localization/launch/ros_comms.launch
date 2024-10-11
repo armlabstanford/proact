@@ -1,0 +1,40 @@
+<!-- launch after opening app on hololens and client is connected -->
+<launch>
+
+    <include file="$(find file_server)/launch/ros_sharp_communication.launch">
+      <param name="port" value="9090"/>
+    </include>
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="match_worlds" args="0 0 0 0.707 0 0 0.707 world optitrack_world"/> -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="arm_on_shoulder" args="0 0 0 0 0 0 1 Shoulderpad base_link"/> -->
+    <!-- Tune this visually -->
+    
+   <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="holoworld_tf_setup" args="0 0 0 0 0 0 1 holocam holoworld"/> -->
+
+    <!-- start publishing synchronized image and info topics from holocam -->
+    <!-- <node if="$(arg testing_software)" name="fake_hololens" pkg="shoulder_localization" type="fake_hololens.py"/>
+    <include unless="$(arg testing_software)" file="$(find shoulder_localization)/launch/holocam_manager.launch">
+    </include> -->
+
+    <!-- <include file="$(find shoulder_localization)/launch/holocam_manager.launch">
+    </include> -->
+    <include file="$(find shoulder_localization)/launch/mocap_comm.launch">
+    </include>
+
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="match_tablerefs" args="0.038 0.0 -0.093 1.57 -1.57 3.14 Clipboard tabletag_ros"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="set_world_under_table" args="0 0 -1.03 0 0 0 1 tabletag_ros world"/>
+
+   
+   <!-- set up hololens world coordinate system-->
+   <!-- <node pkg="shoulder_localization" name="hololens_world_establish" type="hololens_world" output="screen"/> -->
+   
+   <!-- set arm base at apriltag -->
+   <!-- <node pkg="shoulder_localization" name="arm_base_pose_publish" type="arm_placer" output="screen"/> -->
+   
+   <!-- <node pkg="mpl_control" type="locate_realsense_frame.py" name="broadcaster_fixed" output="screen"/>
+    -->
+   <!-- <node name="locate_realsense_frame" pkg="mpl_control" type="locate_realsense_frame.py" respawn="false" output="screen" >
+      <param name="turtle" type="string" value="camera_link" /> -->
+   <!-- </node> -->
+
+</launch>

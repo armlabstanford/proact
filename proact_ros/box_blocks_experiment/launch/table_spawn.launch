@@ -1,0 +1,12 @@
+<launch>
+    <arg name="mocap_on_hl" default="1"/>
+    <!-- spawn environment in Gazebo -->
+    <node name="spawn_table" pkg="gazebo_ros" type="spawn_model" args="-param table_description -urdf -model bbt_box -x 0 -y 0 -z 0 -R 0 -P 0 -Y 1.57"/>
+    <!-- publish to tf tree -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="table_tf" args="0 0 0 1.57 0 0  world table"/>
+    <!-- the table is not likely to move during the experiment, so no need to listen to gazebo pose and so on -->
+    <!-- publish pose for Unity -->
+    <node if = "$(arg mocap_on_hl)" pkg="topic_utils" name="table_to_unity" type="tf2posemsg.py" args="/table_pose_msg hololens_world_test tabletag_ros"/>
+    <node unless = "$(arg mocap_on_hl)" pkg="topic_utils" name="table_to_unity" type="tf2posemsg.py" args="/table_pose_msg hololens_world tabletag_ros"/>
+
+</launch>

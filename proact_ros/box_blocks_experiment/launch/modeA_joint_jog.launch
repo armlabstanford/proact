@@ -1,0 +1,9 @@
+<launch>
+<node pkg="box_blocks_experiment" name="switch_controllers" type="switch_controllers.sh"/>
+<node pkg="direct_control" name="emg2joint" type="emg2joint" output="screen"/>
+
+<!-- just for logging -->
+<node pkg="topic_utils" name="head_ros" type="tf2posemsg.py" args="/hololens_unity_camera_pose_ros world hololens_unity_camera"/>
+<node pkg="gaze" name="log_gaze" type="interpret_gaze_logger" output="screen"/>
+
+</launch>

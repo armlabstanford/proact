@@ -1,0 +1,16 @@
+<launch>
+
+<!-- first launch rossharp node -->
+<!-- then hololens app while hololens is at table location -->
+<!-- then gazebo and moveit roslaunch mpl_control mpl_sim.launch testing:=1 1> >(grep -v LinkState)-->
+<node pkg="tf2_ros" type="static_transform_publisher" name="worlds" args="0 0 0 0 0 0 hololens_world_test world"/>
+<node pkg="tf2_ros" type="static_transform_publisher" name="table_world" args="0 0 1 0 0 0 world tabletag_ros"/>
+<node pkg="topic_utils" type="tf2posemsg.py" name="arm_placer" args="/mpl_right_arm/base_pose hololens_world_test base_link"/>
+
+<include file="$(find box_blocks_experiment)/launch/table_spawn.launch"/>
+
+<!-- then wait till table comes, then 
+   roslaunch box_blocks_experiment blocks_spawn.launch 
+   -->
+
+</launch>

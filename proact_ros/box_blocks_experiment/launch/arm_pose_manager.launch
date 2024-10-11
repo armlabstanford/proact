@@ -1,0 +1,13 @@
+<launch>
+    <arg name="mocap_on_hl" default="1"/>
+<!-- launch this only after hololens world is in tf tree and arm is in gazebo/moveit -->
+    <!-- set arm base at shoulder in hololens -->
+    <!-- <node unless="$(arg testing)" pkg="shoulder_localization" name="arm_base_pose_publish" type="arm_placer" output="screen"/> -->
+    <!-- add arm to tf tree under shoulderpad-->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="arm_base_tf" args="0 0 0 0 0 0 Shoulderpad_filtered base_link"/>
+    <!-- publish link pose to gazebo-->
+    <node name="arm_base_to_gazebo" pkg="topic_utils" type="tf2gazebo.py" args="world base_link world base_link"/>
+    <!-- publish base pose to unity -->
+    <node if="$(arg mocap_on_hl)" name="arm_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/mpl_right_arm/base_pose hololens_world_test base_link"/>
+    <node unless="$(arg mocap_on_hl)" name="arm_to_unity" pkg="topic_utils" type="tf2posemsg.py" args="/mpl_right_arm/base_pose hololens_world base_link"/>
+</launch>
