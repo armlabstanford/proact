@@ -17,7 +17,7 @@ Tested on the following setup:
 - Mixed Reality Toolkit 2.7.3.0
 - OptiTrack motion capture PrimeX series with Motive Tracker 3.0.1
 - OyMotion GForce Pro+ EMG band
-- LibEMG latest release as of January 2024
+- LibEMG v0.0.1
 
 # Setup before inviting participants 
 
