@@ -36,7 +36,7 @@ sudo apt-get install xdotool
 ```
 4. Copy the file_server package from the UWP fork of ROS#: https://github.com/EricVoll/ros-sharp into the workspace and install the rosbridge server: `sudo apt-get install ros-noetic-rosbridge-server`.
 5. Clone packages from https://github.com/JenniferBuehler/general-message-pkgs and https://github.com/JenniferBuehler/gazebo-pkgs into the workspace.
-6. Install [libemg](https://libemg.github.io/libemg/index.html) : `pip3 install libemg` and for the training GUI, `pip3 install pygame`.
+6. Install [libemg](https://libemg.github.io/libemg/index.html) : `pip3 install libemg==0.0.1` and for the training GUI, `pip3 install pygame`.
 7. Clone [libemg-ros](https://github.com/armlabstanford/libemg-ros/tree/main) into the catkin workspace. 
 8. In `shoulder_localization/launch/mocap_comm.launch`, replace the server IP with the IP of the computer running Motive.
 9. Extend the configuration of the workspace `catkin config --extend /opt/ros/noetic/` and build it.
