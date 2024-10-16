@@ -18,6 +18,7 @@ Tested on the following setup:
 - OptiTrack motion capture PrimeX series with Motive Tracker 3.0.1
 - OyMotion GForce Pro+ EMG band
 - LibEMG v0.0.1
+- Python3.8
 
 # Setup before inviting participants 
 
@@ -36,7 +37,7 @@ sudo apt-get install xdotool
 ```
 4. Copy the file_server package from the UWP fork of ROS#: https://github.com/EricVoll/ros-sharp into the workspace and install the rosbridge server: `sudo apt-get install ros-noetic-rosbridge-server`.
 5. Clone packages from https://github.com/JenniferBuehler/general-message-pkgs and https://github.com/JenniferBuehler/gazebo-pkgs into the workspace.
-6. Install [libemg](https://libemg.github.io/libemg/index.html) : `pip3 install libemg==0.0.1`. Newer versions of LibEMG do not support OyMotion at this time.
+6. Install [libemg](https://libemg.github.io/libemg/index.html) : `pip3 install libemg==0.0.1`. Version 1.0.2 (latest at the time of this writing) does not support the OyMotion band.
 7. Clone [libemg-ros](https://github.com/armlabstanford/libemg-ros/tree/main) into the catkin workspace and install its dependencies.
 8. In `shoulder_localization/launch/mocap_comm.launch`, replace the server IP with the IP of the computer running Motive.
 9. Extend the configuration of the workspace `catkin config --extend /opt/ros/noetic/` and build it.
