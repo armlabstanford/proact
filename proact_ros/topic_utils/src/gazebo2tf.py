@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Author: Shivani Guptasarma
 Broadcast tf based on gazebo state

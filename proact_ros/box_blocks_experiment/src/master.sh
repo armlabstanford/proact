@@ -5,8 +5,11 @@
 read -p "Enter participant number: " participant
 read -p "Enter mode 1/2/3/4: " mode
 read -p "Enter trial number: " trial
-read -p "Press 0 if using large brace, 1 if medium: " brace
-read -p "Are we logging this? 0/1 " log
+read -p "Is this Study 2?: (0/1) " study
+# read -p "Press 0 if using large brace, 1 if medium: " brace
+# read -p "Are we logging this? 0/1 " log
+brace=1
+log=1
 
 read -p "Make sure the hololens is calibrated, emg armband is calibrated, shoulder brace is on, previous apps are all closed, then press enter to continue" input
 
@@ -49,7 +52,7 @@ gnome-terminal --tab -- roslaunch box_blocks_experiment table_spawn.launch && xd
 sleep 3
 
 # spawn blocks
-gnome-terminal --tab -- roslaunch box_blocks_experiment blocks_spawn.launch participant:=$participant trial:=$trial && xdotool key alt+1
+gnome-terminal --tab -- roslaunch box_blocks_experiment blocks_spawn.launch participant:=$participant trial:=$trial study:=$study && xdotool key alt+1
 
 sleep 3
 
@@ -59,13 +62,13 @@ gnome-terminal --tab -- roslaunch box_blocks_experiment grasp_setup_all_modes.la
 # whichever mode the participant wants to play in 
 case $mode in
     1) 
-    gnome-terminal --tab -- roslaunch box_blocks_experiment modeA_joint_jog.launch;;
+    gnome-terminal --tab -- roslaunch box_blocks_experiment modeA_joint_jog.launch && xdotool key alt+1;;
     2) 
-    gnome-terminal --tab -- roslaunch box_blocks_experiment modeB_ee_jog.launch;;
+    gnome-terminal --tab -- roslaunch box_blocks_experiment modeB_ee_jog.launch && xdotool key alt+1;;
     3) 
-    gnome-terminal --tab -- roslaunch box_blocks_experiment modeC_gaze.launch mode:=0;;
+    gnome-terminal --tab -- roslaunch box_blocks_experiment modeC_gaze.launch mode:=0 && xdotool key alt+1;;
     4) 
-    gnome-terminal --tab -- roslaunch box_blocks_experiment modeC_gaze.launch mode:=1;;
+    gnome-terminal --tab -- roslaunch box_blocks_experiment modeC_gaze.launch mode:=1 && xdotool key alt+1;;
 esac
 
 case $log in

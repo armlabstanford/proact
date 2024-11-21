@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
 Author: Shivani Guptasarma
 Republish grasp events to a bool topic so Unity can listen and react

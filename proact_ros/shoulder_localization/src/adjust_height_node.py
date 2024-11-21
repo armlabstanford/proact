@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from __future__ import print_function
 import rospy
@@ -21,8 +21,9 @@ def adjust_height_node():
             # rospy.logwarn("found")
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
             pass
+    x0 = trans.transform.translation.z
     z0= trans.transform.translation.y
-    x = 1.5
+    x = x0 + 0.6 #1.5
     y = 0
     z = -(1-(z0-0.43)) #-(1-(z0-0.50))
     qx = 0

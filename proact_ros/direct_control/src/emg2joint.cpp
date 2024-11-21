@@ -74,7 +74,8 @@ JointCommander::JointCommander() : ac("grasp", true), now_closed_(false), joy_to
     pose_sub_ = nh_.subscribe("/mpl_right_arm/wrapped_joint_states", 1, &JointCommander::poseCallback, this);
     grasp_pub_unity_ = nh_.advertise<std_msgs::Bool>("/success", QUEUE_LENGTH);
     delta_trig_ = 0.001; // threshold for joystick input
-    mode_ = 0; 
+    mode_ = 6; 
+    mode_switch();
     /* Modes:
     0: shoulder flx/ext
     1: shoulder ab/d

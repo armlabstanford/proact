@@ -9,7 +9,7 @@
     <arg name="time_now" default="$(eval eval ('_' + '_import_' + '_(\'datetime\')').datetime.now().strftime('%Y-%m-%d-%H-%M-%S'))"/>
 
     <node pkg="rosbag" type="record"  name="rosbag_record"
-    args="-O $(find box_blocks_experiment)/data/participant$(arg participant)-mode$(arg mode)-trial$(arg trial)-$(arg time_now)-pilot.bag
+    args="-O $(find box_blocks_experiment)/data/participant$(arg participant)-mode$(arg mode)-trial$(arg trial)-$(arg time_now).bag
     /clock
     /grasp_event_republisher/grasp_events
     /grasp_status
@@ -34,18 +34,32 @@
     /hololens_unity_camera_pose_ros
     /gaze_position_ros
     /gaze_direction_ros
+    /hololens/head
+    /gaze_position
+    /gaze_direction
+    /place_location_selected
+    /rosworld_pose_msg
     /rosout
+    /move_group/motion_plan_request
+    /mpl_right_arm/arm_controller/follow_joint_trajectory/feedback
+    /mpl_right_arm/j0_controller/command
+    /mpl_right_arm/j1_controller/command
+    /mpl_right_arm/j2_controller/command
+    /mpl_right_arm/j3_controller/command
+    /mpl_right_arm/j4_controller/command
+    /mpl_right_arm/j5_controller/command
+    /mpl_right_arm/j6_controller/command
     "
     />
 
-    <node pkg="rosbag" type="record"  name="rosbag_record_spare"
-    args="-O $(find box_blocks_experiment)/data/participant$(arg participant)-mode$(arg mode)-trial$(arg trial)-$(arg time_now)-extra-pilot.bag
+    <!-- <node pkg="rosbag" type="record"  name="rosbag_record_spare"
+    args="-O $(find box_blocks_experiment)/data/participant$(arg participant)-mode$(arg mode)-trial$(arg trial)-$(arg time_now)-extra.bag
     /hololens/head
     /gaze_position
     /gaze_direction
     /place_location_selected
     /rosworld_pose_msg
     "
-    />
+    /> -->
 
 </launch>

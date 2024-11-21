@@ -13,7 +13,7 @@ Panels:
         - /TF1/Frames1
         - /Pose1
       Splitter Ratio: 0.7425600290298462
-    Tree Height: 276
+    Tree Height: 374
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -51,6 +51,7 @@ Visualization Manager:
     - Acceleration_Scaling_Factor: 1
       Class: moveit_rviz_plugin/MotionPlanning
       Enabled: true
+      JointsTab_Use_Radians: true
       Move Group Namespace: ""
       MoveIt_Allow_Approximate_IK: true
       MoveIt_Allow_External_Program: true
@@ -429,11 +430,9 @@ Visualization Manager:
           Value: true
         Clipboard_filtered:
           Value: true
-        HololensSG:
+        HololensAS:
           Value: true
         Hololens_filtered:
-          Value: true
-        Optitrack_world:
           Value: true
         Shoulderpad:
           Value: true
@@ -444,6 +443,8 @@ Visualization Manager:
         hololens_unity_camera:
           Value: true
         hololens_world_mocap:
+          Value: true
+        hololens_world_test:
           Value: true
         mpl_right_arm__elbow_link:
           Value: false
@@ -503,6 +504,8 @@ Visualization Manager:
           Value: false
         optitrack_world:
           Value: true
+        table:
+          Value: true
         tabletag_ros:
           Value: true
         world:
@@ -514,59 +517,60 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        Optitrack_world:
+        optitrack_world:
+          Clipboard:
+            {}
           Clipboard_filtered:
             tabletag_ros:
               world:
-                {}
+                hololens_world_test:
+                  {}
+                table:
+                  {}
+          HololensAS:
+            hololens_unity_camera:
+              {}
+            hololens_world_mocap:
+              {}
           Hololens_filtered:
             {}
+          Shoulderpad:
+            base_link:
+              mpl_right_arm__forequarter_link:
+                mpl_right_arm__shoulder_link:
+                  mpl_right_arm__humerus_link:
+                    mpl_right_arm__elbow_link:
+                      mpl_right_arm__forearm_link:
+                        mpl_right_arm__wristy_link:
+                          mpl_right_arm__wristx_link:
+                            mpl_right_arm__wristz_link:
+                              mpl_right_arm__index0_link:
+                                mpl_right_arm__index1_link:
+                                  mpl_right_arm__index2_link:
+                                    mpl_right_arm__index3_link:
+                                      {}
+                              mpl_right_arm__middle0_link:
+                                mpl_right_arm__middle1_link:
+                                  mpl_right_arm__middle2_link:
+                                    mpl_right_arm__middle3_link:
+                                      {}
+                              mpl_right_arm__pinky0_link:
+                                mpl_right_arm__pinky1_link:
+                                  mpl_right_arm__pinky2_link:
+                                    mpl_right_arm__pinky3_link:
+                                      {}
+                              mpl_right_arm__ring0_link:
+                                mpl_right_arm__ring1_link:
+                                  mpl_right_arm__ring2_link:
+                                    mpl_right_arm__ring3_link:
+                                      {}
+                              mpl_right_arm__thumb0_link:
+                                mpl_right_arm__thumb1_link:
+                                  mpl_right_arm__thumb2_link:
+                                    mpl_right_arm__thumb3_link:
+                                      {}
           Shoulderpad_filtered:
             {}
-          optitrack_world:
-            Clipboard:
-              {}
-            HololensSG:
-              hololens_unity_camera:
-                {}
-              hololens_world_mocap:
-                {}
-            Shoulderpad:
-              {}
-        base_link:
-          mpl_right_arm__forequarter_link:
-            mpl_right_arm__shoulder_link:
-              mpl_right_arm__humerus_link:
-                mpl_right_arm__elbow_link:
-                  mpl_right_arm__forearm_link:
-                    mpl_right_arm__wristy_link:
-                      mpl_right_arm__wristx_link:
-                        mpl_right_arm__wristz_link:
-                          mpl_right_arm__index0_link:
-                            mpl_right_arm__index1_link:
-                              mpl_right_arm__index2_link:
-                                mpl_right_arm__index3_link:
-                                  {}
-                          mpl_right_arm__middle0_link:
-                            mpl_right_arm__middle1_link:
-                              mpl_right_arm__middle2_link:
-                                mpl_right_arm__middle3_link:
-                                  {}
-                          mpl_right_arm__pinky0_link:
-                            mpl_right_arm__pinky1_link:
-                              mpl_right_arm__pinky2_link:
-                                mpl_right_arm__pinky3_link:
-                                  {}
-                          mpl_right_arm__ring0_link:
-                            mpl_right_arm__ring1_link:
-                              mpl_right_arm__ring2_link:
-                                mpl_right_arm__ring3_link:
-                                  {}
-                          mpl_right_arm__thumb0_link:
-                            mpl_right_arm__thumb1_link:
-                              mpl_right_arm__thumb2_link:
-                                mpl_right_arm__thumb3_link:
-                                  {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -770,15 +774,15 @@ Visualization Manager:
       Lock Camera: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.37999969720840454
+      Pitch: 0.9107968807220459
       Point towards: arbitrary
       Position:
-        X: 4.809645652770996
-        Y: -0.1604396104812622
-        Z: 2.4415359497070312
+        X: 1.4021642208099365
+        Y: 0.697261393070221
+        Z: 3.214320421218872
       Roll: 0
       Target Frame: world
-      Yaw: 3.081589937210083
+      Yaw: -2.845010995864868
     Saved:
       - Class: rviz/FPS
         Enable Stereo Rendering:
@@ -800,7 +804,7 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1719
+  Height: 2086
   Help:
     collapsed: false
   Hide Left Dock: false
@@ -809,11 +813,11 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000003a30000061bfc0200000008fb000000100044006900730070006c006100790073010000006e000001820000018200fffffffb0000000800480065006c00700000000342000000bb000000d400fffffffb0000000a0056006900650077007301000001fc000001320000013200fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000002600000026fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000033a000002c9000002b800fffffffb00000024005200760069007a00560069007300750061006c0054006f006f006c0073004700750069010000060f0000007a0000007a00ffffff000007910000061b00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000003a30000078afc0200000008fb000000100044006900730070006c006100790073010000006e000001e40000018200fffffffb0000000800480065006c00700000000342000000bb000000d400fffffffb0000000a00560069006500770073010000025e000001800000013200fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000002600000026fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000003ea00000369000002b800fffffffb00000024005200760069007a00560069007300750061006c0054006f006f006c0073004700750069010000075f000000990000007a00ffffff00000b510000078a00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RvizVisualToolsGui:
     collapsed: false
   Views:
     collapsed: false
-  Width: 2880
-  X: 568
-  Y: 160
+  Width: 3840
+  X: 3840
+  Y: 0

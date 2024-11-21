@@ -19,7 +19,7 @@
     </include> -->
 
    <!-- VRPN Server -->
-   <arg name="server" default="192.169.1.32"/>
+   <arg name="server" default="192.169.1.31"/>
    <!-- <arg name="server" default="mocap.local"/> -->
 
    <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
