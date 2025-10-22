@@ -175,7 +175,7 @@ include_directories(
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
-catkin_install_python(PROGRAMS src/adjust_height_server.py src/adjust_height_client.py src/adjust_height_node.py src/fix_world_server.py src/fix_world_client.py
+catkin_install_python(PROGRAMS src/adjust_height_node.py src/fix_world_server.py src/fix_world_client.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

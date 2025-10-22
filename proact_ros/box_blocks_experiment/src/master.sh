@@ -6,10 +6,8 @@ read -p "Enter participant number: " participant
 read -p "Enter mode 1/2/3/4: " mode
 read -p "Enter trial number: " trial
 read -p "Is this Study 2?: (0/1) " study
-# read -p "Press 0 if using large brace, 1 if medium: " brace
-# read -p "Are we logging this? 0/1 " log
-brace=1
-log=1
+read -p "Press 0 if using large brace, 1 if medium: " brace
+read -p "Are we logging this? 0/1 " log
 
 read -p "Make sure the hololens is calibrated, emg armband is calibrated, shoulder brace is on, previous apps are all closed, then press enter to continue" input
 
@@ -77,7 +75,7 @@ case $log in
     ;;
     
     1) 
-    read -p "Press enter to start logging" input
+    read -p "NOT LOGGING YET! Press enter to start logging" input
     gnome-terminal --tab -- roslaunch box_blocks_experiment logging.launch participant:=$participant mode:=$mode trial:=$trial && xdotool key alt+1
     # get current time
     current_time=$(date +%Y-%m-%d-%H-%M-%S)
