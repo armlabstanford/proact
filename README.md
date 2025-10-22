@@ -96,7 +96,7 @@ At first, the arm, box and blocks will appear above your head somewhere. To matc
 
 ## EMG
 
-1. Have participants put on the EMG band snugly on the forearm, plug in the BLE dongle to the Linux computer and switch on the band. 
+1. Have participants put on the EMG band snugly on the forearm, and switch on the band. 
 2. Navigate to `libemg-ros` and run `python3 train.py`, clicking "Train Model" to train gestures. Explain that the training gestures need to be as independent of each other as possible in the way they are performed.
 
 <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/videos/emg_train.gif" height="300">
