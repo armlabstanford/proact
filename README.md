@@ -63,6 +63,7 @@ Remember to export these as Motive assets to avoid repeating calibration.
 In Motive, open network settings from the bottom right and enable VRPN streaming.
 
 :memo: The first time this setup is used, the coordinate frame attached to the shoulder (where the base of the arm appears) will likely need to be manually adjusted in Motive, to attain some intersection of believability and visibility. 
+
 :memo: If the tracked frames jitter too much, it is best to add more markers and/or adjust the cameras and recalibrate so that continuous visibility is assured. If that does not solve the problem, Motive offers a smoothing setting (select the Asset and scroll down in the Properties panel) that can be turned up for both the HoloLens and and shoulder brace. 
 
 ## Windows
